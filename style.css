@@ -163,15 +163,15 @@ section.swiss {
 }
 
 
-/* ANIMATION SECTION */
 
-section.main {
+/* PROJECTS Section */
+
+section.projects {
     height: 100vh;
-    display: block;
-    background-color: var(--red-primary);
-}
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 
-.main {
     /*background: linear-gradient(156deg, #b52d2d, #8f0404, #644949, #8f0404, #b52d2d);
     */
     background: linear-gradient(156deg, #b52d2d, #c21c22, #751c1c, #c21c22, #b52d2d);
@@ -197,84 +197,162 @@ section.main {
     50%{background-position:40% 100%}
     100%{background-position:61% 0%}
 }
+.projects-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh; /* Full page height for demo */
+    background-color: #f5f5f5; /* Light background */
+}
 
-div.main {
-    height: 100vh;
-    max-height: 100vh;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    overflow-x: scroll;
+.projects {
+    position: relative;
+    width: 90%;
+    height: 90vh;
+    border-radius: 1em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.reveal {
     position: absolute;
+    z-index: 10;
     width: 100%;
-    z-index: 2;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 1em;
+    transition: background-color 2s ease-in-out, opacity 2s ease-in-out;
 }
 
-div.main * {
-    display: inline-block;
-    vertical-align: middle;
-    height: 50%;
-    box-sizing: border-box;
-}
-
-.main .red {
-    background-color: var(--gray-primary);
-    width: 5%;
-    margin: 0% 10px;
-    transition: width 0.5s;
-    z-index: 2;
-    overflow: hidden;
-    display: inline-block;
-}
-
-.red * {
+.reveal h1 {
     color: black;
-}
-.red .content {
-    box-sizing: border-box;
-    max-height: 90%;
-    padding: 2%;
-    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    transition: opacity 2s ease-in-out;
 }
 
+.reveal:hover {
+    background-color: transparent;
+}
 
-.red h3 {
-    display: block;
-    text-align: center;
-    max-height: 10%;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 2em;
+    z-index: 5;
+    padding: 2em;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.project-tile.last {
+    grid-column: 2;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        grid-template-rows: auto; /* As many rows as needed */
+    }
+
+    .project-tile.last {
+        grid-column: 1;
+    }
+}
+
+.project-tile {
+    border: 1px solid #ddd;
+    border-radius: 0.5em;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
 }
 
 
-.red#4 p {
-    text-align: center;
-    font-size: 50px;
-    background: linear-gradient(to left,
-                    violet,
-                    indigo,
-                    blue,
-                    green,
-                    yellow,
-                    orange,
-                    red);
-    -webkit-background-clip: text;
-    color: transparent;
+.image-block.carousel {
+    animation: imageToggle 10s infinite;
+}
+
+@keyframes imageToggle {
+    0%, 50% {
+        background-image: url("./projects/ELEVATOR-ECE-1.png");
+    }
+    51%, 100% {
+        background-image: url("./projects/ELEVATOR-ECE-2.png");
+    }
+}
+.image-block {
+    width: 100%;
+    min-height: 200px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.text-block {
+    padding: 1em;
+    background-color: white;
+    height: 100%
+}
+
+.text-block h4 {
+    margin: 0 0 0.5em 0;
+    font-size: 1.2em;
+}
+
+.text-block p {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
 }
 
 
-.invisiblepads {
-    width: 45%;
+.project-tile img {
+    width: 100%; /* Image takes 80% of the tile's width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures no extra space below the image */
+    margin: 0 auto; /* Centers the image within the tile */
 }
 
-.main .red.firstplane {
-    width: 15%;
+.project-tile img {
+    padding: 0;
+    margin: 0;
 }
 
-.main .red.active {
-    width: 85%;
-    margin: 0px !important;
-    height: 85%;
+.project-tile .text-block {
+    padding: 1em;
     background-color: white;
 }
+
+.reveal.hide-once {
+    background-color: transparent;
+    pointer-events: none; /* Prevents further interaction */
+}
+
+.reveal.hide-once h1 {
+    opacity: 0; /* Makes the text disappear */
+}
+
+.reveal.hide-once + .grid {
+    opacity: 1; /* Reveals the grid */
+}
+
+.image-block {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
 
 
 /* CONTACT Section */

@@ -207,30 +207,18 @@ section.projects {
 
 .projects {
     position: relative;
-    width: 90%;
-    height: 90vh;
-    border-radius: 1em;
+    width: 100%;
+    height: 120vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+    
 
-.reveal {
-    position: absolute;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 1em;
-    transition: background-color 2s ease-in-out, opacity 2s ease-in-out;
-}
-
-.reveal h1 {
+.projects h1 {
+    text-align: center;
     color: black;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: bold;
     transition: opacity 2s ease-in-out;
 }
@@ -246,7 +234,7 @@ section.projects {
     gap: 2em;
     z-index: 5;
     padding: 2em;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 2s ease-in-out;
 }
 
@@ -267,7 +255,6 @@ section.projects {
 
 .project-tile {
     border: 1px solid #ddd;
-    border-radius: 0.5em;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 1em;
@@ -330,20 +317,6 @@ section.projects {
     padding: 1em;
     background-color: white;
 }
-
-.reveal.hide-once {
-    background-color: transparent;
-    pointer-events: none; /* Prevents further interaction */
-}
-
-.reveal.hide-once h1 {
-    opacity: 0; /* Makes the text disappear */
-}
-
-.reveal.hide-once + .grid {
-    opacity: 1; /* Reveals the grid */
-}
-
 .image-block {
     width: 100%;
     height: 200px; /* Adjust height as needed */

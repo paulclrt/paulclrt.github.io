@@ -1,0 +1,134 @@
+@import 'https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Color+Emoji&display=swap';
+
+
+div.navbar{
+    max-height: 10vh;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+        img {
+            min-width: 50px;
+            max-height: 50px;
+        }
+    }
+
+    // div.desktop-links {
+    //     display: none; 
+
+    //     a {
+    //         color: black;
+    //         text-decoration: none;
+    //         font-style: italic;
+    //         margin: 0em 0.3em;
+    //     }
+    // }
+
+    .searchbar form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: baseline;
+        input[type=text] {
+            width: 70%;
+            border: 1px solid gray;
+            border-left: 0px solid white;
+            
+            border-radius: 3em 0em 0em 3em;
+            padding: 1em 0.5em;
+        }
+        input[type=submit] {
+            width: 30%;
+            border: 1px solid gray;
+            background-color: black;
+            
+            color: white;
+            padding: 1em 0.2em;
+            border-radius: 0em 2em 2em 0em;
+        }
+    }
+}
+
+
+main {
+    margin: 0% 3%;
+    * { font-family: "Bricolage Grotesque", "Geist Mono", "Inter", "Noto Color Emoji";}
+    h1 {
+        font-size: 3em;
+        margin: 0.1em 0em;
+    }
+    h2.subtitle {
+        margin: 0.2em 0em;
+    }
+
+    .by-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        min-height: 65px;
+        img {
+            max-height: 50px;
+            max-width: 50px;
+            border-radius: 100%;
+            margin-right: 1em;
+        }
+        div {
+            h3, p {
+                margin: 0em;
+                font-weight: 300;
+                color: rgb(134, 134, 134);
+            }
+        }
+    }
+
+
+    img {
+        max-width: 100%;
+    }
+
+    .code {
+        pre {
+            border: 1px solid rgb(192, 192, 192);
+            border-radius: 1em;
+            padding: 0em 1em;
+
+            background-color: #f7f7f7;
+            font-family: 'Courier New', Courier, monospace !important;
+          }
+    }
+
+
+    .question {
+        background-color: rgba(255, 166, 0, 0.627);
+        border: 1px solid rgb(255, 166, 0);
+        border-radius: 1em;
+        padding: 1em 0.5em;
+    }
+
+    .remark {
+        background-color: rgba(189, 189, 189, 0.373);
+        border: 1px solid rgb(189, 189, 189);
+        border-radius: 1em;
+        padding: 1em 0.5em;
+    }
+}
+
+
+
+
+
+@media (min-width: 600px) {
+    body {
+      margin: 2% 22%;
+    }
+    // .desktop-links {
+    //     display: flex !important;
+    //     flex-direction: row;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
+  }

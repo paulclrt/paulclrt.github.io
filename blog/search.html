@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLCYZ1755W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MLCYZ1755W');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-52RQ5RM7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./search.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favico.svg">
+    <title> {Title} - Blog Paul Claret </title>
+</head>
+
+<body>
+    <link loading="lazy" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <script loading="lazy" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+
+    <header>
+        <div class="navbar">
+            <a href="/">
+                <img src="favico.svg" alt="Website Paul Claret Logo" >
+            </a>
+            <!-- <div class="desktop-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blogs</a>
+            </div> -->
+            <div class="searchbar">
+                <form action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </header>
+
+
+
+    <main>
+        <h1>Browse through all of my articles</h1>
+        <form action="search.html" method="get">
+            <input type="text" name="q" placeholder="Search...">
+            <input type="submit">
+        </form>
+        <ul class="article-list">
+            <a href="#"><li>Article numéro X</li></a>
+            <a href="#"><li>Article numéro X</li></a>
+            <a href="#"><li>Article numéro X</li></a>
+            <a href="#"><li>Article numéro X</li></a>
+            <a href="#"><li>Article numéro A</li></a>
+            <a href="#"><li>Article numéro A</li></a>
+            <a href="#"><li>Article numéro A</li></a>
+            <a href="#"><li>Article numéro A</li></a>
+            <a href="#"><li>Article numéro A</li></a>
+            <a href="#"><li>Article numéro A</li></a>
+            <a href="#"><li>Article numéro A</li></a>
+            <a href="#"><li>Article numéro A</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Y</li></a>
+            <a href="#"><li>Article numéro Z</li></a>
+            <a href="#"><li>Article numéro Z</li></a>
+            <a href="#"><li>Article numéro Z</li></a>
+            <a href="#"><li>Article numéro Z</li></a>
+            <a href="#"><li>Article numéro Z</li></a>
+            <a href="#"><li>Article numéro Z</li></a>
+            <a href="#"><li>Article numéro Z</li></a>
+
+        </ul>
+        <div id="pagination"></div>
+
+    </main>
+</body>
+<script>
+    const articlesPerPage = 10; // Number of articles to show per page
+    let currentPage = 1; // Current page number
+    const articleList = document.querySelector(".article-list");
+    const articles = Array.from(articleList.children);
+
+    // Helper function to display the correct page
+    function displayPage(pageNumber) {
+        const startIndex = (pageNumber - 1) * articlesPerPage;
+        const endIndex = startIndex + articlesPerPage;
+
+        articles.forEach((article, index) => {
+            if (index >= startIndex && index < endIndex) {
+                article.style.display = ""; // Show articles in the range
+            } else {
+                article.style.display = "none"; // Hide articles outside the range
+            }
+        });
+
+        renderPagination();
+    }
+
+    // Helper function to render pagination buttons
+    function renderPagination() {
+        const paginationContainer = document.querySelector("#pagination");
+        paginationContainer.innerHTML = ""; // Clear existing buttons
+
+        const totalPages = Math.ceil(articles.length / articlesPerPage);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement("button");
+            button.innerText = i;
+            button.className = i === currentPage ? "active" : "";
+            button.onclick = () => {
+                currentPage = i;
+                displayPage(currentPage);
+            };
+            paginationContainer.appendChild(button);
+        }
+    }
+
+    // Search functionality integrated with pagination
+    const searchParams = new URLSearchParams(window.location.search);
+    const searchQuery = searchParams.get("q")?.toLowerCase();
+
+    if (searchQuery) {
+        // Filter articles by search query
+        const filteredArticles = articles.filter(article =>
+            article.innerText.toLowerCase().includes(searchQuery)
+        );
+
+        filteredArticles.forEach((article, index) => {
+            article.style.display = index < articlesPerPage ? "" : "none";
+        });
+
+        articles.forEach(article => {
+            if (!filteredArticles.includes(article)) {
+                article.style.display = "none";
+            }
+        });
+
+        renderPagination();
+    } else {
+        // Display full articles with pagination
+        displayPage(currentPage);
+    }
+</script>
+
+
+</html>

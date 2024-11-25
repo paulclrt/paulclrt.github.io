@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLCYZ1755W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MLCYZ1755W');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-52RQ5RM7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favico.svg">
+    <title>Explication Backpropagation - Deeplearning | Blog Paul Claret</title>
+</head>
+
+<body>
+    <link loading="lazy" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <script loading="lazy" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+
+    <header>
+        <div class="navbar">
+            <a href="/">
+                <img src="favico.svg" alt="Website Paul Claret Logo" >
+            </a>
+            <!-- <div class="desktop-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blogs</a>
+            </div> -->
+            <div class="searchbar">
+                <form action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </header>
+
+
+
+    <main>
+        <section class="redaction">
+            <div id="ariane">
+                <p>
+                    <a href="/blog/search.html">blog</a>
+                    >
+                    <a href="/blog/backpropagation-explication.html">backpropagation-explication</a>
+                </p>
+            </div>
+            <h1 class="title">Comprendre la Backpropagation pour l'IA</h1>
+            <!-- <h2 class="subtitle">Subtitle</h2> -->
+            <div class="by-card">
+                <img src="favico.svg" alt="Author Profile - Paul Claret">
+                <div>
+                    <h3>By Paul Claret</h3>
+                    <p>5 minutes read - 24/11/24</p>
+                </div>
+            </div>
+            <p class="answer">
+                La backpropagation est le fait d'actualiser individuellement les poids de chaque couche de neurones (layer) en fonction de l'erreur du model.
+            </p>
+            <p class="text">Visuellement voici à quoi cela ressemble:</p>
+            <h3>Phase feedforward:</h3>
+            <p class="text">
+                Après avoir fait passé nos données une fois dans notre réseaux de neurone, celui-ci nous donne une prediction dans la couche output:
+            </p>
+            
+            <img src="./designs/FeedForward.png" alt="Image réseaux neurones phase feedforward">
+
+            <h3>
+                Calculs de l'erreur: loss functions
+            </h3>
+
+            <p>
+                Nous calculons ensuite l'erreur du model avec la fonction de notre choix. 2 fonctions communes sont par <code class="language-javascript">MAE: Mean absolute error</code> ou encore <code class="language-javascript">MSE: Mean square error</code>. 
+                Vous pouvez trouver plus d'information sur <a href="/blog/fonctions-de-pertes.html">les loss functions sur cet article</a>
+            </p>
+        
+            <h3>
+                Ajustement des poids: Backpropagation
+            </h3>
+            <img src="./designs/Backpropagation.png" alt="Image réseaux neurones phase backpropagation">
+            <p>
+                Ceci nous donne une valeurs numérique qui nous permet de determiner à quel point notre model a faux. Si notre model prédit une valeure trop grande par rapport à la réalité, il faut ajuster les poids pour que sa prédiction soit plus petite. S'il prédit une valeur trop petite, il faut ajuster les poids pour qu'elle soit plus grande.
+            </p>
+            <p>
+                Vous voyez le principe ? <p class="remark">La backpropagation regarde l'erreur du model est ajuste les poids pour s'approcher de la valeure attendue.</p>
+            </p>
+            <p>
+                Pour plus de précision et rigueure, la backpropagation n'est que l'algorithme qui calcule le <a href="/blog/calcul-du-gradient.html">gradient</a>. 
+                Ce n'est pas la phase feedforward ni l'ajustement des poids (c'est le job de <a href="/blog/descente-de-gradient.html">la descente de gradient</a>). 
+                Je les ai inclus dans cet article pour donner plus de contexte. Mais le terme backpropagation est souvent utilisé de cette façon. 
+                Un ingénieur en intelligence artificielle comprendera parfaitement cette utilisation
+            </p>
+
+            <h3>
+                Comment ajuster les poids ?
+            </h3>
+
+            <p>
+                L'ajustement des poids pour un réseau de neurone est une tâche très mathématique et peu visuelle. 
+                Vous pouvez regader l'article que j'ai écrit sur la <a href="/blog/descente-de-gradient.html">la descente de gradient stochastique</a> ainsi que celui sur la <a href="/blog/chain-rule.html">chain rule</a>.
+            </p>
+
+            <h3> Vous voulez apprendre l'IA en autonomie ?</h3>
+            <p>
+                Si vous êtes nouveau sur mon site, je vous invite à aller voir ma page sur <a href="/roadmap-ia.html">Roadmap IA</a> qui regroupe tous mes articles dans l'ordre pour vous facilitez l'apprentissage.
+            </p>
+        </section>
+    </main>
+
+
+
+
+    <footer> 
+        <p>
+            Copyright © 2024 Paul Claret 
+        </p> 
+        <p>
+            Made with Love ❤️
+        </p> 
+        <p>     
+            <!-- <a href="/tos" class="hover:underline"> Terms of Service </a> |
+            <a href="/privacy" class="hover:underline"> Privacy Policy </a> | -->
+            <a href="mailto:paulclaret4@gmail.com" class="hover:underline"> Contact Me </a> 
+        </p>
+    </footer>
+
+
+
+</body>
+</html>

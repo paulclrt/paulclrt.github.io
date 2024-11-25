@@ -1,4 +1,9 @@
-@import 'https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Color+Emoji&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap';
+html, body {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
 div.navbar {
   max-height: 10vh;
   min-width: 100%;
@@ -38,6 +43,13 @@ main {
 main * {
   font-family: "Bricolage Grotesque", "Geist Mono", "Inter", "Noto Color Emoji";
 }
+main .redaction {
+  max-width: 97%;
+}
+main .ariane, main .ariane * {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
 main h1 {
   font-size: 3em;
   margin: 0.1em 0em;
@@ -74,6 +86,11 @@ main .code pre {
   background-color: #f7f7f7;
   font-family: "Courier New", Courier, monospace !important;
 }
+main .answer {
+  background-color: rgb(233, 233, 233);
+  border-left: 0.3em solid rgb(37, 139, 255);
+  padding: 1em;
+}
 main .question {
   background-color: rgba(255, 166, 0, 0.627);
   border: 1px solid rgb(255, 166, 0);
@@ -85,6 +102,27 @@ main .remark {
   border: 1px solid rgb(189, 189, 189);
   border-radius: 1em;
   padding: 1em 0.5em;
+}
+main p {
+  line-height: 1.7em;
+  margin: 2em 0em;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+  margin-top: 8em;
+}
+footer * {
+  font-family: "Bricolage Grotesque", "Geist Mono", "Inter";
+  font-size: 0.9em;
+  margin: 0;
+  color: gray;
+}
+footer a {
+  text-decoration: none;
 }
 
 @media (min-width: 600px) {

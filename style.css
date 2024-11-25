@@ -269,10 +269,10 @@ section.projects {
 
 @keyframes imageToggle {
     0%, 50% {
-        background-image: url("./projects/ELEVATOR-ECE-1.png");
+        background-image: url("./projects/ELEVATOR-ECE-1.avif");
     }
     51%, 100% {
-        background-image: url("./projects/ELEVATOR-ECE-2.png");
+        background-image: url("./projects/ELEVATOR-ECE-2.avif");
     }
 }
 .image-block {

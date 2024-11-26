@@ -1,0 +1,98 @@
+@import 'https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap';
+html, body {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+main {
+  margin: 0% 3%;
+}
+main * {
+  font-family: "Bricolage Grotesque", "Geist Mono", "Inter", "Noto Color Emoji";
+}
+main h1 {
+  font-size: 2.5em;
+  margin: 0.1em 0em;
+}
+main h2.subtitle {
+  margin: 0.2em 0em;
+  color: rgb(184, 184, 184);
+}
+main p {
+  line-height: 1.7em;
+  margin: 2em 0em;
+}
+main section {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main section .text, main section .image {
+  width: 47%;
+  max-width: 47%;
+}
+main section .text h3 {
+  font-size: 2em;
+}
+main section.newsletter {
+  display: flex;
+  flex-direction: column;
+}
+main section.newsletter h3 {
+  font-size: 2em;
+}
+main section.newsletter p {
+  max-width: 65%;
+}
+main section.newsletter form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+main section.newsletter form input[type=email] {
+  width: 65%;
+  padding: 1em 0.5em;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
+main section.newsletter form input[type=submit] {
+  background-color: black;
+  border-radius: 1em;
+  border: none;
+  color: white;
+  padding: 1em 2em;
+  width: 33%;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+  margin-top: 8em;
+}
+footer * {
+  font-family: "Bricolage Grotesque", "Geist Mono", "Inter";
+  font-size: 0.9em;
+  margin: 0;
+  color: gray;
+}
+footer a {
+  text-decoration: none;
+}
+
+@media (min-width: 600px) {
+  body {
+    margin: 2% 2%;
+  }
+  .desktop-links {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "ES5",
+      "module": "ESNext",
+      "outDir": "./dist",
+      "rootDir": "./",
+      "strict": true,
+      "esModuleInterop": true
+    },
+    "include": ["roadmap/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
+  

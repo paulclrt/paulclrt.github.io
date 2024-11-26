@@ -1,0 +1,56 @@
+
+div.navbar {
+    max-height: 10vh;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  div.navbar a.image-link {
+    width: 15vw;
+    max-width: 15vw;
+  }
+  div.navbar a.image-link img {
+    min-width: 50px;
+    max-height: 50px;
+  }
+  div.navbar div.desktop-links {
+    display: none;
+  }
+  div.navbar div.desktop-links a {
+    color: black;
+    text-decoration: underline;
+    font-style: italic;
+    margin: 0em 0.3em;
+  }
+
+
+
+  div.navbar .searchbar form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    
+  }
+  @media screen and (min-width: 800px) {
+   .searchbar form {
+    width: 15vw;
+    max-width: 15vw;
+   }
+  }
+  div.navbar .searchbar form input[type=text] {
+    width: 70%;
+    border: 1px solid gray;
+    border-left: 0px solid white;
+    border-radius: 3em 0em 0em 3em;
+    padding: 1em 0.5em;
+  }
+  div.navbar .searchbar form input[type=submit] {
+    width: 30%;
+    border: 1px solid gray;
+    background-color: black;
+    color: white;
+    padding: 1em 0.2em;
+    border-radius: 0em 2em 2em 0em;
+  }

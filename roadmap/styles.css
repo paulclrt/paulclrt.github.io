@@ -1,0 +1,87 @@
+@import 'https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap';
+html, body {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Bricolage Grotesque", "Geist Mono", "Inter", "Noto Color Emoji";
+}
+
+.container {
+  display: flex;
+  height: 85vh;
+  overflow: hidden;
+  flex-direction: column;
+  touch-action: none;
+}
+.container .roadmap-container {
+  flex: 2;
+  position: relative;
+  overflow: hidden;
+  background-color: #f4f4f4;
+  cursor: grab;
+  touch-action: none;
+}
+.container .roadmap-container #roadmap-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.container .roadmap-container #roadmap-controls button {
+  margin: 0 0;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.container .roadmap-container #roadmap {
+  touch-action: none;
+  position: absolute;
+  transform: translate(0, 0) scale(1);
+  transform-origin: center;
+  transition: transform 0.1s ease;
+  pointer-events: auto;
+}
+.container .roadmap-container #roadmap .roadmap-item {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #00adef;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+.container .roadmap-container #roadmap .roadmap-item:hover {
+  background-color: #007cbf;
+}
+.container .info-panel {
+  flex: 1;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: -3px 0 5px rgba(0, 0, 0, 0.1);
+}
+.container .info-panel h3 {
+  margin-top: 0;
+}
+
+@media (min-width: 600px) {
+  body {
+    margin: 2% 2%;
+  }
+  .desktop-links {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    flex-direction: row !important;
+  }
+}/*# sourceMappingURL=styles.css.map */

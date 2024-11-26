@@ -24,36 +24,10 @@ Vous voyez le principe ? **La backpropagation regarde l'erreur du model est ajus
 
 Pour plus de précision et rigueure, la backpropagation n'est que l'algorithme qui calcule le [gradient](). Ce n'est pas la phase feedforward ni l'ajustement des poids (c'est le job de [la descente de gradient]()). Je les ai inclus dans cet article pour donner plus de contexte. Mais le terme backpropagation est souvent utilisé de cette façon. Un ingénieur en intelligence artificielle comprendera parfaitement cette utilisation
 
-
-
 ### Comment ajuster les poids ?
 
 L'ajustement des poids pour un réseau de neurone est une tâche très mathématique et peu visuelle. Vous pouvez regader l'article que j'ai écrit sur la [descente de gradient soschastique]() ainsi que celui sur la [chain rule](). 
 
-
-
 Si vous êtes nouveau sur mon site, je vous invite à aller voir ma page sur [Roadmap IA]() qui regroupe tous mes articles dans l'ordre pour vous facilitez l'apprentissage.
 
-
-
-
-
-
-
-
-
-
-
-## Les maths derrière la backprop
-
-
-
-$$
-MAE =\frac{\sum_{i=1}^n{\vert y_i - \bar{y_i}\vert}}{n}
-$$
-
-$$
-MSE = \frac{\sum_{i=1}^n{(y_i - \bar{y_i})^2}}{n}
-$$
-
-
+## 

@@ -5,6 +5,7 @@ html, body {
 }
 
 main {
+  box-sizing: border-box;
   margin: 0% 3%;
 }
 main * {
@@ -29,9 +30,20 @@ main section {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 800px) {
+  main section {
+    flex-direction: column;
+  }
+}
 main section .text, main section .image {
   width: 47%;
   max-width: 47%;
+}
+@media screen and (max-width: 800px) {
+  main section .text, main section .image {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 main section .text h3 {
   font-size: 2em;

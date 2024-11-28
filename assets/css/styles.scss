@@ -4,10 +4,15 @@
 html, body {
     max-width: 100vw;
     box-sizing: border-box;
+
 }
+// * {
+//     outline: 1px solid #f00 !important;
+//   }
 
 
 main {
+    box-sizing: border-box;
     margin: 0% 3%;
     * { font-family: "Bricolage Grotesque", "Geist Mono", "Inter", "Noto Color Emoji";}
     
@@ -31,9 +36,16 @@ main {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+        }
         .text, .image {
             width: 47%;
             max-width: 47%;
+            @media screen and (max-width: 800px) {
+                max-width: 100%;
+                width: 100%;
+            }
         }
         .text h3 {
             font-size: 2em;

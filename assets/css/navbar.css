@@ -1,7 +1,8 @@
 
 div.navbar {
     max-height: 10vh;
-    min-width: 100%;
+    box-sizing: border-box;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,9 +15,7 @@ div.navbar {
     min-width: 50px;
     max-height: 50px;
   }
-  div.navbar div.desktop-links {
-    display: none;
-  }
+
   div.navbar div.desktop-links a {
     color: black;
     text-decoration: underline;
@@ -31,9 +30,15 @@ div.navbar {
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
-    
   }
+  div.navbar .searchbar {
+    display: none;
+  }
+
   @media screen and (min-width: 800px) {
+    .searchbar {
+      display: block !important;
+    }
    .searchbar form {
     width: 15vw;
     max-width: 15vw;

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLCYZ1755W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MLCYZ1755W');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-52RQ5RM7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/favico.svg">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <title>Explication le gradient - Deeplearning/IA | Blog Paul Claret</title>
+    <meta name="description" content="Dans cet article, je vous explique l'outil mathématique du gradient et comment il fonctionne. En savoir plus...">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+</head>
+
+<body>
+    <link loading="lazy" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <script loading="lazy" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+
+    <header>
+        <div class="navbar">
+            <a href="/">
+                <img src="favico.svg" alt="Website Paul Claret Logo" >
+            </a>
+            <!-- <div class="desktop-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blogs</a>
+            </div> -->
+            <div class="searchbar">
+                <form action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </header>
+
+
+
+    <main>
+        <section class="redaction">
+            <div id="ariane">
+                <p>
+                    <a href="/blog/search.html">blog</a>
+                    >
+                    <a href="/blog/le-gradient-maths-et-IA.html">explication-gradient-maths</a>
+                </p>
+            </div>
+            <h1 class="title">Explication du Gradient pour l'IA</h1>
+            <!-- <h2 class="subtitle">Subtitle</h2> -->
+            <div class="by-card">
+                <img src="favico.svg" alt="Author Profile - Paul Claret">
+                <div>
+                    <h3>By Paul Claret</h3>
+                    <p>5 minutes read - 28/11/24</p>
+                </div>
+            </div>
+
+
+          <p>Si vous avez fait des étude sup avec des maths, vous savez peut-être ce que c'est et le concept vous es plutôt familier. Sinon, je peux comprendre que vous soyez perdu. Alors voici comment fonctionne le gradient en mathématiques.</p>
+          <p>
+            <p class="answer">
+                Le gradient est un outil mathématique et physique qui prend une fonction (généralement) à plusieurs variables en entrée et sort les dérivées partielles de cette fonction en tout point.
+            </p>
+            Ce qui donne en réalité, la direction de la variation de la fonction. Oui, la définition dit comme ça n'est pas très claire, mais en une image, c'est plus simple:</p>
+          <h2 class="atx" id="version-graphique">Version graphique</h2>
+          <img alt="" src="designs/gradient-2d.png">
+          <p>
+            En 2D ici, vous remarquez que j'ai tracé la fonction <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:1em;vertical-align:-0.25em;" class="strut"></span><span style="margin-right:0.10764em;" class="mord mathnormal">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span style="margin-right:0.2778em;" class="mspace"></span><span class="mrel">=</span><span style="margin-right:0.2778em;" class="mspace"></span></span><span class="base"><span style="height:0.8141em;" class="strut"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span style="height:0.8141em;" class="vlist"><span style="top:-3.063em;margin-right:0.05em;"><span style="height:2.7em;" class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> en vert. Cette fonction a un minimum global en <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:0.6444em;" class="strut"></span><span class="mord">0</span></span></span></span> qui vaut <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:0.6444em;" class="strut"></span><span class="mord">0</span></span></span></span>. Le gradient de la fonction <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:0.8141em;" class="strut"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span style="height:0.8141em;" class="vlist"><span style="top:-3.063em;margin-right:0.05em;"><span style="height:2.7em;" class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> est la tangente à la courbe en rouge. Vous voyez que visuellement, elle représente une pente qui se dirige vers ou s'éloigne du minimum global (ça dépend si vous lisez le graphique de gauche à droite ou droite à gauche). Plus on s'approche du minimum global, plus la pente est douce (voir pente orange). Et enfin, en 0, la pente est horizontale.</p>
+          <p>C'est plus simple vu comme ça, n'est-ce pas ?</p>
+          <p>Cette représentation visuelle est la plus utile pour apprendre le deep learning et l'intelligence artificielle puisque comme cous avez le voir dans un autre article que j'ai écrit sur <a href="/blog/descente-de-gradient.html">la descente de gradient stochastique</a>, c'est cette visualisation qui est la plus intuitive.</p>
+          <p>L'exemple que je vous ai donné en 2D marche aussi en 3D. La fonction est un peu plus compliquée pour tracer la géométrie, mais le principe reste le même:</p>
+          
+          <img alt="3D Gradient descent : r/learnmachinelearning" src="https://preview.redd.it/3d-gradient-descent-v0-0zqq6h1785cd1.jpeg?auto=webp&amp;s=8a9908ef9a8d0821d161841cee24f6031385d4df">
+          <p>source: <a href="https://images.app.goo.gl/gzTtrnvDPSEiwqM87">https://images.app.goo.gl/gzTtrnvDPSEiwqM87</a></p>
+          <p>Sur cette image, vous voyez bien que la fonction en 3 dimensions représentées par le plan en bleu et rouge possède des bosses et des creux. Les flèches sur l'image passent d'une "altitude plus élevée" à une altitude plus faible, autrement dit, elles passent des bosses aux creux. Si vous êtes malin, vous remarquerez que la flèche va dans un creux puis remonte et  va dans le creux plus profond. Si vous voulez savoir pourquoi, je l'explique dans l'article sur <a href="/blog/descente-de-gradient.html">la descente de gradient stochastique</a> ainsi que <a href="/blog/optimisation-moment-et-adam.html">le moment et les optimisations</a>. Mais ce n'est plus de l'ordre du simple gradient.</p>
+          <h2>Version algébrique</h2>
+          <p>En reprenant l'exemple précédent, le gradient de la fonction carré est <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:0.4306em;" class="strut"></span><span class="mord mathnormal">x</span></span></span></span>. Puisque comme je l'ai dit, *"le gradient d'une fonction sort les dérivées partielles de cette fonction"*. La définition algébrique est donc la suivante</p>
+          <span class="katex-display"><span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:1em;vertical-align:-0.25em;" class="strut"></span><span class="mord">Δ</span><span style="margin-right:0.10764em;" class="mord mathnormal">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span style="margin-right:0.1667em;" class="mspace"></span><span style="margin-right:0.03588em;" class="mord mathnormal">y</span><span class="mpunct">,</span><span style="margin-right:0.1667em;" class="mspace"></span><span style="margin-right:0.04398em;" class="mord mathnormal">z</span><span class="mclose">)</span><span style="margin-right:0.2778em;" class="mspace"></span><span class="mrel">=</span><span style="margin-right:0.2778em;" class="mspace"></span></span><span class="base"><span style="height:2.0574em;vertical-align:-0.686em;" class="strut"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span style="height:1.3714em;" class="vlist"><span style="top:-2.314em;"><span style="height:3em;" class="pstrut"></span><span class="mord"><span style="margin-right:0.05556em;" class="mord">∂</span><span class="mord mathnormal">x</span></span></span><span style="top:-3.23em;"><span style="height:3em;" class="pstrut"></span><span style="border-bottom-width:0.04em;" class="frac-line"></span></span><span style="top:-3.677em;"><span style="height:3em;" class="pstrut"></span><span class="mord"><span style="margin-right:0.05556em;" class="mord">∂</span><span style="margin-right:0.10764em;" class="mord mathnormal">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span style="height:0.686em;" class="vlist"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span style="margin-right:0.2222em;" class="mspace"></span><span class="mbin">+</span><span style="margin-right:0.2222em;" class="mspace"></span></span><span class="base"><span style="height:2.2519em;vertical-align:-0.8804em;" class="strut"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span style="height:1.3714em;" class="vlist"><span style="top:-2.314em;"><span style="height:3em;" class="pstrut"></span><span class="mord"><span style="margin-right:0.05556em;" class="mord">∂</span><span style="margin-right:0.03588em;" class="mord mathnormal">y</span></span></span><span style="top:-3.23em;"><span style="height:3em;" class="pstrut"></span><span style="border-bottom-width:0.04em;" class="frac-line"></span></span><span style="top:-3.677em;"><span style="height:3em;" class="pstrut"></span><span class="mord"><span style="margin-right:0.05556em;" class="mord">∂</span><span style="margin-right:0.10764em;" class="mord mathnormal">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span style="height:0.8804em;" class="vlist"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span style="margin-right:0.2222em;" class="mspace"></span><span class="mbin">+</span><span style="margin-right:0.2222em;" class="mspace"></span></span><span class="base"><span style="height:2.0574em;vertical-align:-0.686em;" class="strut"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span style="height:1.3714em;" class="vlist"><span style="top:-2.314em;"><span style="height:3em;" class="pstrut"></span><span class="mord"><span style="margin-right:0.05556em;" class="mord">∂</span><span style="margin-right:0.04398em;" class="mord mathnormal">z</span></span></span><span style="top:-3.23em;"><span style="height:3em;" class="pstrut"></span><span style="border-bottom-width:0.04em;" class="frac-line"></span></span><span style="top:-3.677em;"><span style="height:3em;" class="pstrut"></span><span class="mord"><span style="margin-right:0.05556em;" class="mord">∂</span><span style="margin-right:0.10764em;" class="mord mathnormal">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span style="height:0.686em;" class="vlist"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span><p>Si votre fonction comme la fonction carrée ne comporte qu'une variable, la définition du gradient se simplifie ne enlevant les termes avec les y et z. De même, si vous voulez rajouter une variable temporelle t, vous rajouterez un autre terme <span class="katex"><span class="katex-mathml"></span><span aria-hidden="true" class="katex-html"><span class="base"><span style="height:1.2772em;vertical-align:-0.345em;" class="strut"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span style="height:0.9322em;" class="vlist"><span style="top:-2.655em;"><span style="height:3em;" class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span style="margin-right:0.05556em;" class="mord mtight">∂</span><span class="mord mathnormal mtight">t</span></span></span></span><span style="top:-3.23em;"><span style="height:3em;" class="pstrut"></span><span style="border-bottom-width:0.04em;" class="frac-line"></span></span><span style="top:-3.4461em;"><span style="height:3em;" class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span style="margin-right:0.05556em;" class="mord mtight">∂</span><span style="margin-right:0.10764em;" class="mord mathnormal mtight">f</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span style="height:0.345em;" class="vlist"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+          <p>Comme vous pouvez le voir, le gradient n'est pas un outil compliqué en soit. Ce n'est qu'une somme de dérivées partielles.</p>
+          <p>Si vous ne savez pas ce que sont les dérivées partielles, je vous recommande cette vidéo de la khan academy:</p>
+          <p><a href="https://fr.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/partial-derivatives/v/partial-derivatives-introduction">Khan Academy - Derivées partielles</a></p>
+          <p>C'est une des meilleures ressources que je connaisse pour apprendre les maths en autonomie donc n'hésitez pas à aller les voir pour n'importe quel problème mathématique.</p>
+          
+
+
+
+            <h3> Vous voulez apprendre l'IA en autonomie ?</h3>
+            <p>
+                Si vous êtes nouveau sur mon site, je vous invite à aller voir ma page sur <a href="/roadmap/ai-roadmap.html">Roadmap IA</a> qui regroupe tous mes articles dans l'ordre pour vous facilitez l'apprentissage.
+            </p>
+        </section>
+    </main>
+
+
+
+
+    <footer> 
+        <p>
+            Copyright © 2024 Paul Claret 
+        </p> 
+        <p>
+            Made with Love ❤️
+        </p> 
+        <p>     
+            <!-- <a href="/tos" class="hover:underline"> Terms of Service </a> |
+            <a href="/privacy" class="hover:underline"> Privacy Policy </a> | -->
+            <a href="mailto:paulclaret4@gmail.com" class="hover:underline"> Contact Me </a> 
+        </p>
+    </footer>
+
+
+
+</body>
+</html>

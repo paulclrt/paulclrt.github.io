@@ -1,127 +1,61 @@
-"use strict";
-var roadmap = $("#roadmap");
-var panel = $("#info-panel");
-var isDragging = false;
-var startX = 0;
-var startY = 0;
-var translateX = 0;
-var translateY = 0;
-var zoomSpeed = 0.1;
-var scale = 1;
-var zoomStep = 0.1;
-var minScale = 0.5;
-var maxScale = 2;
-$('#zoom-in').on('click', function () {
-    if (scale < maxScale) {
-        scale += zoomStep;
-        updateZoom();
+let currentArticleIndex = undefined; // L'index actuel
+const articles = []; // Liste des URLs des articles
+// Initialiser la liste des articles depuis les éléments <li>
+$("ul>li").each(function () {
+    const url = $(this).data("url");
+    if (url) 
+        articles.push(url);
+    
+});
+// Fonction pour charger un article par son index
+function loadArticle(index, updateHistory = true) {
+    if (index < 0 || index >= articles.length) {
+        console.error("Index en dehors des limites");
+        return;
     }
-});
-$('#zoom-out').on('click', function () {
-    if (scale > minScale) {
-        scale -= zoomStep;
-        updateZoom();
-    }
-});
-// Drag and move the roadmap
-$(".roadmap-container").on("mousedown", function (e) {
-    isDragging = true;
-    startX = e.clientX - translateX;
-    startY = e.clientY - translateY;
-    $(".roadmap-container").css("cursor", "grabbing");
-});
-$(document).on("mousemove", function (e) {
-    if (isDragging) {
-        var deltaX = e.clientX - startX;
-        var deltaY = e.clientY - startY;
-        translateX += deltaX;
-        translateY += deltaY;
-        startX = e.clientX;
-        startY = e.clientY;
-        updateTransform();
-    }
-});
-$(document).on("mouseup", function () {
-    isDragging = false;
-    $(".roadmap-container").css("cursor", "grab");
-});
-// Zoom in and out with mouse wheel - NOT REALLY WORKING
-// $(".roadmap-container").on("wheel", (e) => {
-//   e.preventDefault();
-//   const originalEvent = e.originalEvent as WheelEvent;
-//   const mouseX = originalEvent.clientX - roadmap.offset().left; // X position relative to roadmap
-//   const mouseY = originalEvent.clientY - roadmap.offset().top;  // Y position relative to roadmap
-//   const delta = originalEvent.deltaY > 0 ? -zoomSpeed : zoomSpeed;
-//   const newScale = Math.min(Math.max(scale + delta, 0.5), 2); // Clamp zoom between 0.5x and 2x
-//   const scaleChange = newScale / scale; // How much the scale is changing
-//   scale = newScale;
-//   // Adjust translation to zoom towards the cursor position
-//   translateX = mouseX - scaleChange * (mouseX - translateX);
-//   translateY = mouseY - scaleChange * (mouseY - translateY);
-//   updateTransform();
-// });
-function updateTransform() {
-    roadmap.css("transform", "translate(".concat(translateX, "px, ").concat(translateY, "px) scale(").concat(scale, ")"));
-}
-// Display item details
-$(".roadmap-item").on("click", function () {
-    var title = $(this).data("title");
-    var description = $(this).data("description");
-    $("#info-title").text(title);
-    $("#info-description").text(description);
-});
-// MOBILE VERSIOIN
-// Touch Drag for Mobile
-var isTouchDragging = false;
-var touchStartX = 0;
-var touchStartY = 0;
-var touchOffsetX = 0;
-var touchOffsetY = 0;
-// Touch events for dragging
-$("#roadmap-container").on('touchstart', function (e) {
-    isTouchDragging = true;
-    touchStartX = e.touches[0].clientX - touchOffsetX;
-    touchStartY = e.touches[0].clientY - touchOffsetY;
-});
-$("#roadmap-container").on('touchmove', function (e) {
-    if (isTouchDragging) {
-        touchOffsetX = e.touches[0].clientX - touchStartX;
-        touchOffsetY = e.touches[0].clientY - touchStartY;
-        roadmap.css('transform', "translate(".concat(touchOffsetX, "px, ").concat(touchOffsetY, "px) scale(").concat(scale, ")"));
-    }
-});
-$("#roadmap-container").on('touchend', function () {
-    isTouchDragging = false;
-});
-// Pinch-to-Zoom for Mobile
-var initialDistance = 0;
-var initialScale = scale;
-$("#roadmap-container").on('touchmove', function (e) {
-    if (e.touches.length === 2) {
-        // Get the distance between the two fingers
-        var touch1 = e.touches[0];
-        var touch2 = e.touches[1];
-        var distance = Math.sqrt(Math.pow(touch2.clientX - touch1.clientX, 2) + Math.pow(touch2.clientY - touch1.clientY, 2));
-        // If we have a valid starting distance, calculate the scaling
-        if (initialDistance === 0) {
-            initialDistance = distance;
+    
+    const url = articles[index];
+    $.get(url, function (data) {
+        const parsedHTML = $("<div>").html(data);
+        const mainContent = parsedHTML.find("main").html();
+        if (mainContent) {
+            $("article").html(mainContent);
+            currentArticleIndex = index; // Mettre à jour l'index courant
+            // Ajouter l'URL dans l'historique du navigateur
+            if (updateHistory) {
+                history.pushState({ index }, "", url);
+            }
+        } else {
+            $("article").html("<p>Pas de balise <main> trouvée.</p>");
         }
-        else {
-            var zoomFactor = distance / initialDistance;
-            scale = initialScale * zoomFactor;
-            // Constrain the scale value
-            if (scale > maxScale)
-                scale = maxScale;
-            if (scale < minScale)
-                scale = minScale;
-            updateZoom();
-        }
+    }).fail(function () {
+        $("article").html("<p>Erreur lors du chargement du contenu.</p>");
+    });
+}
+// Événement sur les éléments <li>
+$("ul>li").on("click", function () {
+    const index = $("ul>li").index(this); // Trouver l'index de l'élément cliqué
+    loadArticle(index);
+});
+// Événement pour le bouton "Précédent"
+$("#prev").on("click", function () {
+    if (currentArticleIndex > 0) {
+        loadArticle(currentArticleIndex - 1);
+    } else {
+        alert("Vous êtes déjà au premier article.");
     }
 });
-$("#roadmap-container").on('touchend', function () {
-    initialDistance = 0;
-    initialScale = scale;
+// Événement pour le bouton "Suivant"
+$("#next").on("click", function () {
+    if (currentArticleIndex < articles.length - 1) {
+        loadArticle(currentArticleIndex + 1);
+    } else {
+        alert("Vous êtes déjà au dernier article.");
+    }
 });
-function updateZoom() {
-    roadmap.css('transform', "scale(".concat(scale, ")"));
-}
+// Gérer les événements "popstate" (boutons retour/avant du navigateur)
+window.onpopstate = function (event) {
+    if (event.state && event.state.index !== undefined) {
+        loadArticle(event.state.index, false); // Ne pas ajouter à l'historique
+    }
+};

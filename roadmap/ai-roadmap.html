@@ -22,12 +22,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/favico.svg">
     <link rel="stylesheet" href="./styles.css">
+    <link class="blog-sheets" rel="stylesheet" href="/blog/css/styles-roadmap-adapted.css">
     <link rel="stylesheet" href="/assets/css/navbar.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>RoadMap IA | Apprenez l'IA de A à Z - Paul Claret</title>
     <meta name="description" content="Apprenez l'IA en suivant la roadmap. Débutant à avancé. Tous les concepts y sont ! Cette roadmap vous permettera des faire votre propre IA générative d'ici la fin !">
     
+
+    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+    <link loading="lazy" class="blog-sheets" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <script loading="lazy" class="blog-sheets" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
 </head>
 <body>
 
@@ -52,32 +61,96 @@
     </header>
 
 
+<!--
+    
+<svg viewBox="-6 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#969696" stroke="#969696"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>locked</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-522.000000, -307.000000)" fill="#8c8c8c"> <path d="M532,337 C527.582,337 524,333.418 524,329 C524,324.582 527.582,321 532,321 C536.268,321 540,324.732 540,329 C540,333.418 536.418,337 532,337 L532,337 Z M526,315 C526,311.687 528.687,309 532,309 C535.313,309 538,311.687 538,315 L538,321.014 C536.327,319.755 534.255,319 532,319 C529.746,319 527.673,319.755 526,321.014 L526,315 L526,315 Z M540,323.019 L540,315 C540,310.582 536.418,307 532,307 C527.582,307 524,310.582 524,315 L524,323.019 C522.75,324.688 522,326.754 522,329 C522,334.523 526.478,339 532,339 C537.522,339 542,334.523 542,329 C542,326.754 541.25,324.688 540,323.019 L540,323.019 Z M532,327 C531.447,327 531,327.448 531,328 L531,332 C531,332.553 531.447,333 532,333 C532.553,333 533,332.553 533,332 L533,328 C533,327.448 532.553,327 532,327 L532,327 Z" id="locked" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
 
+
+-->
 
     <main>
-        <div class="container">
-            <div class="roadmap-container" id="roadmap-container">
-            <div id="roadmap-controls">
-                <button id="zoom-in">+</button>
-                <button id="zoom-out">-</button>
+        <div class="table-of-content">
+            <h3>Table des Matières</h3>
+<ol>
+    <li>
+        <hr>
+        <p>Introduction</p>
+        <ul>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Définition, historique, et applications actuelles</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Différences entre IA, Machine Learning (ML) et Deep Learning (DL)</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Les enjeux éthiques et les défis de l'IA</li>
+        </ul>
+    </li>
+    <li>
+        <hr>
+        <p>Bases Mathématiques (Si nécessaire)</p>
+        <ul>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Algèbre Linéaire</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Calcul Différentiel</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Probabilités et Statistiques</li>
+        </ul>
+    </li>
+    <li>
+        <hr>
+        <p>Machine Learning</p>
+        <ul>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Les différent types d'apprentissage</li> <!--Supervisé, non supervisén par renforcement, semi-supervisé-->
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Ensemble d'entraînement, de validation et de test</li>
+
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">introduction algorithmes de base</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Régression linéaire et logistique</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">k-NN, k-means, arbres de décision, SVM</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Évaluation des modèles</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Courbe ROC, précision, rappel, F1-score</li>
+        </ul>
+    </li>
+    <li>
+        <hr>
+        <p>Apprentissage par Renforcement (Reinforcement Learning)</p>
+        <ul>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Agents, environnements, politiques, récompenses</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Algorithmes clés</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Q-Learning, Deep Q-Networks (DQN)</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Cas d'application : Jeux, robotique</li>
+        </ul>
+    </li>
+    <li>
+        <hr>
+        <p>Réseaux Neuronaux et Deep Learning</p>
+        <ul>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Réseaux neuronaux artificiels (ANNs)</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Architecture, fonctions d'activation, propagation avant et arrière</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Deep Learning</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Les réseaux de neurones convoutifs - CNN</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Les réseaux de neurones récurrent - RNN</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Les réseaux de neurones récurrent à mémoire long et court terme - LSTM</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Le principe d'attention</li>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Les transformers</li>
+            </ul>
+        </ul>
+    </li>
+    <li>
+        <hr>
+        <p>L'IA générative</p>
+        <ul>
+            <li data-url="http://localhost:5500/blog/backpropagation-explication.html">Les réseaux de neurones génératifs adversarial - GAN</li>
+        </ul>
+    </li>
+</ol>
+
+        </div>
+        <div class="content">
+            <article>
+
+            </article>
+            <div class="nav">
+                <button id="prev">Previous</button>
+                <button id="next">Done 😊</button>
             </div>
-              <div id="roadmap">
-                <!-- Example roadmap items -->
-                <div class="roadmap-item" data-title="Step 1" data-description="Description for Step 1" style="left: 100px; top: 200px;">1</div>
-                <div class="roadmap-item" data-title="Step 2" data-description="Description for Step 2" style="left: 300px; top: 400px;">2</div>
-                <div class="roadmap-item" data-title="Step 3" data-description="Description for Step 3" style="left: 600px; top: 100px;">3</div>
-              </div>
-            </div>
-            <div class="info-panel">
-              <h3 id="info-title">Select a step</h3>
-              <p id="info-description">Click on a roadmap item to see details here.</p>
-            </div>
-          </div>
+        </div>
+        <div class="google-ad"></div>
 
         <script src="/dist/roadmap/roadmap.js" type="module"></script>
-
-
-
     </main>
 
 

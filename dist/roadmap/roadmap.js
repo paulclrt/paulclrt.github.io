@@ -3,10 +3,48 @@ const articles = []; // Liste des URLs des articles
 // Initialiser la liste des articles depuis les éléments <li>
 $("ul>li").each(function () {
     const url = $(this).data("url");
-    if (url) 
+    if (url != "" && url ) {
         articles.push(url);
+    } else {
+        articles.push("/blog/not-found.html")
+    }
     
 });
+
+window.onload = function () {
+    // get the idx param in url if it exists and laod the article
+    var url = window.location.href;
+    var params = url.split("?")[1];
+    var params_arr = params.split("&");
+    var idx = -1;
+    for (let p = 0; p < params_arr.length; p++) {
+        let split = params_arr[p].split("=")
+        console.log(split);
+        
+        if (split[0] === "idx") {
+            console.log("next index: ", split[1]);
+            idx = parseInt(split[1]);
+            break;
+        }
+    }
+    console.log(idx);
+    if (idx != -1) {
+        loadArticle(idx);
+    }
+}
+
+
+function updateURLParameter(url, paramVal){
+    var tempArray = url.split("?");
+    var baseURL = tempArray[0];
+    var updatedURL = baseURL + "?idx=" + paramVal
+
+    window.history.replaceState("", "", updatedURL)
+}
+
+
+
+
 // Fonction pour charger un article par son index
 function loadArticle(index, updateHistory = true) {
     if (index < 0 || index >= articles.length) {
@@ -23,7 +61,7 @@ function loadArticle(index, updateHistory = true) {
             currentArticleIndex = index; // Mettre à jour l'index courant
             // Ajouter l'URL dans l'historique du navigateur
             if (updateHistory) {
-                history.pushState({ index }, "", url);
+                updateURLParameter(window.location.href, currentArticleIndex);
             }
         } else {
             $("article").html("<p>Pas de balise <main> trouvée.</p>");

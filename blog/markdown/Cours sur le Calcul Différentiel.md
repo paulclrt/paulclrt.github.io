@@ -59,11 +59,7 @@ Si $f(x) = \frac{g(x)}{h(x)}$, alors : $f'(x)=\frac{g'(x)h(x)-h'(x)g(x)}{(h(x))^
 Essentielle pour les réseaux neuronaux :  
 Si $f(x) = g(h(x))$, alors $f'(x) = g'(h(x)) \cdot h'(x)$.
 
-
-
 ## Exemple pratiques
-
-
 
 ---
 
@@ -88,5 +84,3 @@ où $\eta$ est le taux d’apprentissage (*learning rate*).
 Si  vous êtes avancés:
 
 [Introduction au gradient - 3Blue1Brown (vidéo YouTube)](https://www.youtube.com/watch?v=IHZwWFHWa-w)
-
-

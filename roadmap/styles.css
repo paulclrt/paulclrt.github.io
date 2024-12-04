@@ -62,6 +62,9 @@ main {
   width: 60%;
   max-height: 90vh;
   overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
 }
 
 article {
@@ -74,9 +77,6 @@ article::-webkit-scrollbar {
 }
 
 .nav {
-  position: fixed;
-  width: 60%;
-  bottom: 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

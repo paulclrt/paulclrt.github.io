@@ -19,15 +19,12 @@ window.onload = function () {
     var idx = -1;
     for (let p = 0; p < params_arr.length; p++) {
         let split = params_arr[p].split("=")
-        console.log(split);
         
         if (split[0] === "idx") {
-            console.log("next index: ", split[1]);
             idx = parseInt(split[1]);
             break;
         }
     }
-    console.log(idx);
     if (idx != -1) {
         loadArticle(idx);
     }
@@ -59,6 +56,11 @@ function loadArticle(index, updateHistory = true) {
         if (mainContent) {
             $("article").html(mainContent);
             currentArticleIndex = index; // Mettre à jour l'index courant
+            // trigger mathjax to rerender
+            MathJax.typeset();
+
+
+
             // Ajouter l'URL dans l'historique du navigateur
             if (updateHistory) {
                 updateURLParameter(window.location.href, currentArticleIndex);

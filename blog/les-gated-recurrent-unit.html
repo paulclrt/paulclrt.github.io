@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLCYZ1755W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MLCYZ1755W');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-52RQ5RM7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/favico.svg">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <title>Les gated recurrent unit - GRU - IA | Blog Paul Claret</title>
+    <meta name="description" content="Explication complète, étape par étape des réseaux de neurones GRU pour l'IA">
+    
+
+    <script defer id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <link loading="lazy" class="blog-sheets" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <script loading="lazy" class="blog-sheets" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <a href="/" class="image-link">
+                <img src="/assets/favico.svg" alt="Website Paul Claret Logo" >
+            </a>
+            <!-- <div class="desktop-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blogs</a>
+            </div> -->
+            <div class="searchbar">
+                <form action="/blog/search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </header>
+
+
+
+    <main>
+        <section class="redaction">
+            <div id="ariane">
+                <p>
+                    <a href="/blog/search.html">blog</a>
+                    >
+                    <a href="/blog/les-gated-recurrent-unit.html">les-gated-recurrent-unit</a>
+                </p>
+            </div>
+            <h1 class="title">Gated recurrent unit explications - GRU/<h1>
+            <h2 class="subtitle">Explications simples et approfondies avec les maths</h2>
+            <div class="by-card">
+                <img src="/assets/favico.svg" alt="Author Profile - Paul Claret">
+                <div>
+                    <h3>By Paul Claret</h3>
+                    <p>10 minutes read - 06/12/24</p>
+                </div>
+            </div>
+
+            <p>Le troisème et derneir type de model que l’on va voir ensemble pour
+                les données séquentielles. Je vais passer très vite dessus puisque le
+                principe est très très similaire aux LSTM</p>
+                <h2 id="larchitecture">L’architecture</h2>
+                <figure>
+                <img role="img" aria-label="gated recurrent network" src="data:image/webp;base64,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" alt="gated recurrent network" />
+                <figcaption aria-hidden="true">gated recurrent network</figcaption>
+                </figure>
+                <p>La différence avec les LSTM est que:</p>
+                <ul>
+                <li><p>Ils ne contiennent pas de cell state</p></li>
+                <li><p>Ce sont les hidden state (<span class="math inline">\(h_{t-1},
+                h_t\)</span>) qui transportent l’information</p></li>
+                <li><p>il y a 2 gates: update et reset</p></li>
+                <li><p>Ils sont plus rapide que les LSTM (moins d’opérations
+                aussi)</p></li>
+                </ul>
+                <h3 id="la-update-gate">La update gate</h3>
+                <p>Le but de cette porte est de déterminer 2 choses à la fois: quelles
+                informations oublier et ajouter. Pour le cacul, on retrouve une addition
+                entre le hidden state et input: <span class="math inline">\(x_t\oplus
+                h_{t-1}\)</span> qui est ensuite mis dans la fonction sigmoid: <span class="math inline">\(\sigma(W.x_t\oplus U.h_{t-1})\)</span>. Les <span class="math inline">\(W\)</span> et <span class="math inline">\(U\)</span> sont des matrices de poids classiques.
+                Cette sortie est utilisé ensuita dans le calcul de la reset gate mais
+                aussi remuliplié au hidden state. Donc: <span class="math inline">\(h_{t-1} \otimes \sigma(x_t\oplus
+                h_{t-1})\)</span>.</p>
+                <h3 id="la-reset-gate">La reset gate</h3>
+                <p>La <em>reset gate</em> est conçue pour contrôler combien
+                d’informations provenant du <em>hidden state</em> précédent (<span class="math inline">\(h_{t-1}\)</span>) doivent être “oubliées” ou
+                réinitialisées. Cela aide à limiter l’impact des gradients explosifs ou
+                évanescents.</p>
+                <p>Comme pour la <em>update gate</em>, le calcul implique une
+                combinaison linéaire suivie d’une activation sigmoïde :</p>
+                <p><span class="math display">\[
+                r_t​=σ(W_r​⋅x_t​+U_r​⋅h_{t−1​}+b_r​)
+                \]</span></p>
+                <p>Ensuite, cette valeur <span class="math inline">\(r_t\)</span> est
+                multipliée élément par élément avec <span class="math inline">\(h_{t-1}\)</span>, pour “filtrer” les informations
+                passées pertinentes. Le résultat est combiné à l’entrée <span class="math inline">\(x_t\)</span> avant d’être passé dans une fonction
+                <span class="math inline">\(\tanh\)</span> pour générer le <em>hidden
+                state</em> actuel :</p>
+                <p><span class="math display">\[
+                h_{t2}​=tanh(W⋅x_t​+U⋅(r_t​⊗h_{t−1}​)+b)
+                \]</span></p>
+                <p>Enfin, le nouveau <em>hidden state</em> est obtenu en interpolant
+                entre l’ancien <span class="math inline">\(h_{t-1}\)</span> et le
+                candidat <span class="math inline">\(\tilde{h}_t\)</span>, selon la
+                valeur de <span class="math inline">\(z_t\)</span> :</p>
+                <p><span class="math display">\[
+                h_t​=(1−z_t​)⊗h_{t−1}​+z_t​⊗h_{t2}​
+                \]</span></p>
+                <h2 id="principe-final">Principe final</h2>
+                <p>Le GRU fusionne deux mécanismes essentiels : <em>se souvenir</em> et
+                <em>oublier</em>. Grâce à ses deux portes, il peut décider dynamiquement
+                quelles informations conserver ou négliger à chaque étape temporelle.
+                Cette simplicité relative par rapport aux LSTM, combinée à une
+                efficacité calculatoire, rend les GRU particulièrement utiles pour
+                traiter des données séquentielles lorsque les ressources ou les temps de
+                calcul sont limités.</p>
+                <h2 id="conclusion">Conclusion</h2>
+                <p>Les Gated Recurrent Units sont une version simplifiée mais puissante
+                des LSTM. Leur architecture, basée sur deux portes principales, permet
+                de traiter efficacement des séquences de données tout en réduisant le
+                risque de problèmes liés aux gradients. En raison de leur simplicité et
+                de leur rapidité, ils sont souvent préférés dans des contextes où les
+                performances computationnelles sont critiques. Que ce soit pour des
+                tâches de traitement du langage naturel ou de séries temporelles, les
+                GRU sont un choix robuste et performant.</p>
+                <h2 id="quelques-liens-supplémentaires-pour-les-curieux">Quelques liens
+                supplémentaires pour les curieux:</h2>
+                <p>https://towardsdatascience.com/understanding-gru-networks-2ef37df6c9be</p>
+                <p>https://ieeexplore.ieee.org/document/9631548</p>
+                <p><a href="https://www.mdpi.com/2076-3417/13/16/9059">Human Activity
+                Recognition Method Based on Edge Computing-Assisted and GRU Deep
+                Learning Network</a></p>
+                <p>https://medium.com/<span class="citation" data-cites="anishnama20/understanding-gated-recurrent-unit-gru-in-deep-learning-2e54923f3e2">@anishnama20/understanding-gated-recurrent-unit-gru-in-deep-learning-2e54923f3e2</span></p>
+                
+
+
+
+
+
+
+            <h3> Vous voulez apprendre l'IA en autonomie ?</h3>
+            <p>
+                Si vous êtes nouveau sur mon site, je vous invite à aller voir ma page sur <a href="/roadmap/ai-roadmap.html">Roadmap IA</a> qui regroupe tous mes articles dans l'ordre pour vous facilitez l'apprentissage.
+            </p>
+        </section>
+    </main>
+
+
+
+
+    <footer> 
+        <p>
+            Copyright © 2024 Paul Claret 
+        </p> 
+        <p>
+            Made with Love ❤️
+        </p> 
+        <p>     
+            <!-- <a href="/tos" class="hover:underline"> Terms of Service </a> |
+            <a href="/privacy" class="hover:underline"> Privacy Policy </a> | -->
+            <a href="mailto:paulclaret4@gmail.com" class="hover:underline"> Contact Me </a> 
+        </p>
+    </footer>
+
+
+
+</body>
+</html>

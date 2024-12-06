@@ -48,11 +48,14 @@ main section .text, main section .image {
 main section .text h3 {
   font-size: 2em;
 }
-main section .images {
-  max-width: 50%;
+@media screen and (min-width: 800px) {
+  main section .images {
+    max-width: 50%;
+  }
 }
 main section .images img {
   max-width: 100%;
+  min-width: 100%;
 }
 main section.projects {
   background-color: rgb(10, 48, 10);
@@ -71,7 +74,7 @@ main section.projects .list {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: baseline;
+  align-items: center;
 }
 @media screen and (max-width: 800px) {
   main section.projects .list {

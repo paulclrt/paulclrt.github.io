@@ -1,3 +1,6 @@
 
 test.html
 node_modules
+articles/*
+articles/
+.gitignore

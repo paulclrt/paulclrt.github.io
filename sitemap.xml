@@ -1,44 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://localhost</loc>
-		<lastmod>2024-11-25-T11:34:03-06:00</lastmod>
+		<loc>https://paulclaret.pro/roadmap\ai-roadmap</loc>
+		<lastmod>2024-12-06-T09:17:33-06:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>https://localhost/google9d9126a9fda3307f</loc>
-		<lastmod>2024-11-25-T11:34:03-06:00</lastmod>
+		<loc>https://paulclaret.pro/portfolio\</loc>
+		<lastmod>2024-12-03-T12:10:45-06:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>https://localhost/dontlookhere</loc>
-		<lastmod>2024-11-25-T11:34:03-06:00</lastmod>
+		<loc>https://paulclaret.pro/portfolio\dontlookhere</loc>
+		<lastmod>2024-11-26-T06:10:32-06:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>https://localhost/checkout\merci</loc>
-		<lastmod>2024-11-25-T11:34:03-06:00</lastmod>
+		<loc>https://paulclaret.pro</loc>
+		<lastmod>2024-12-06-T13:50:31-06:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>https://localhost/checkout\formation-IA</loc>
-		<lastmod>2024-11-25-T11:34:03-06:00</lastmod>
+		<loc>https://paulclaret.pro/google9d9126a9fda3307f</loc>
+		<lastmod>2024-11-19-T19:09:57-06:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>https://localhost/blog\search</loc>
-		<lastmod>2024-11-25-T11:34:03-06:00</lastmod>
+		<loc>https://paulclaret.pro/checkout\merci</loc>
+		<lastmod>2024-11-25-T09:03:56-06:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>https://localhost/blog\backpropagation-explication</loc>
-		<lastmod>2024-11-25-T11:34:03-06:00</lastmod>
+		<loc>https://paulclaret.pro/checkout\formation-IA</loc>
+		<lastmod>2024-11-25-T09:04:22-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\search</loc>
+		<lastmod>2024-12-06-T08:42:47-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\not-found</loc>
+		<lastmod>2024-12-04-T16:39:51-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\long-short-term-memory-LSTM</loc>
+		<lastmod>2024-12-06-T08:38:09-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\les-reseaux-de-neurones-recurrents</loc>
+		<lastmod>2024-12-06-T08:46:18-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\les-reseaux-de-neurones-convolutionels</loc>
+		<lastmod>2024-12-05-T08:47:48-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\les-gated-recurrent-unit</loc>
+		<lastmod>2024-12-06-T08:41:37-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\le-gradient-maths-et-IA</loc>
+		<lastmod>2024-12-03-T07:41:24-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\fonctions-de-perte-ia</loc>
+		<lastmod>2024-12-03-T07:41:13-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\dev\template</loc>
+		<lastmod>2024-11-26-T07:42:47-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\calcul-differentiel</loc>
+		<lastmod>2024-12-03-T08:39:43-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\backpropagation-explication</loc>
+		<lastmod>2024-12-03-T07:40:49-06:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>https://paulclaret.pro/blog\algebre-lineaire</loc>
+		<lastmod>2024-12-03-T08:34:20-06:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1</priority>
 	</url>

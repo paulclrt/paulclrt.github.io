@@ -50,6 +50,62 @@ main {
         .text h3 {
             font-size: 2em;
         }
+        .images {
+            max-width: 50%;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+
+    section.projects {
+        background-color: rgb(10, 48, 10);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        min-height: 70vh;
+        h3, h4 {
+            color: white;
+            font-size: 1.5em;
+        }
+        .list {
+            min-width: 100%;
+            display: flex;
+            flex-direction: row;
+            @media  screen and (max-width: 800px) {
+                flex-direction: column;
+            }
+            justify-content: space-evenly;
+            align-items: baseline;
+            div {
+                min-width: 20rem;
+                max-width: 20rem;
+                min-height: 20rem;
+                max-height: 20rem;
+                background-repeat: no-repeat;
+                background-size: cover;
+                // padding: 5em;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                h4 {
+                    text-align: center;
+                }
+            }
+
+            div:hover {
+                cursor: pointer;
+                -webkit-filter: brightness(60%);
+                -webkit-transition: all 0.4s ease-out;
+                -moz-transition: all 0.4s ease-out;
+                -o-transition: all 0.4s ease-out;
+                -ms-transition: all 0.4s ease-out;
+                transition: all 0.4s ease-out;
+            }
+        }
     }
 
     section.newsletter {

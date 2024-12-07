@@ -48,9 +48,7 @@ main .by-card div h3, main .by-card div p {
   margin: 0em;
   font-weight: 300;
   color: rgb(134, 134, 134);
-}
-main .by-card div h3 {
-  font-size: 1em;
+  font-size: 1rem;
 }
 main img {
   max-width: 100%;

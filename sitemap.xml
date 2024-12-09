@@ -1,117 +1,123 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
-		<loc>https://paulclaret.pro/roadmap\ai-roadmap</loc>
-		<lastmod>2024-12-06-T09:17:33-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/portfolio\</loc>
-		<lastmod>2024-12-03-T12:10:45-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/portfolio\dontlookhere</loc>
-		<lastmod>2024-11-26-T06:10:32-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro</loc>
-		<lastmod>2024-12-06-T13:50:31-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/google9d9126a9fda3307f</loc>
-		<lastmod>2024-11-19-T19:09:57-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/checkout\merci</loc>
-		<lastmod>2024-11-25-T09:03:56-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/checkout\formation-IA</loc>
-		<lastmod>2024-11-25-T09:04:22-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\search</loc>
-		<lastmod>2024-12-06-T08:42:47-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\not-found</loc>
-		<lastmod>2024-12-04-T16:39:51-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\long-short-term-memory-LSTM</loc>
-		<lastmod>2024-12-06-T08:38:09-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\les-reseaux-de-neurones-recurrents</loc>
-		<lastmod>2024-12-06-T08:46:18-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\les-reseaux-de-neurones-convolutionels</loc>
-		<lastmod>2024-12-05-T08:47:48-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\les-gated-recurrent-unit</loc>
-		<lastmod>2024-12-06-T08:41:37-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\le-gradient-maths-et-IA</loc>
-		<lastmod>2024-12-03-T07:41:24-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\fonctions-de-perte-ia</loc>
-		<lastmod>2024-12-03-T07:41:13-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\dev\template</loc>
-		<lastmod>2024-11-26-T07:42:47-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\calcul-differentiel</loc>
-		<lastmod>2024-12-03-T08:39:43-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\backpropagation-explication</loc>
-		<lastmod>2024-12-03-T07:40:49-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
-	<url>
-		<loc>https://paulclaret.pro/blog\algebre-lineaire</loc>
-		<lastmod>2024-12-03-T08:34:20-06:00</lastmod>
-		<changefreq>daily</changefreq>
-		<priority>1</priority>
-	</url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://paulclaret.pro/</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/search.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/roadmap/ai-roadmap.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/portfolio/index.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/backpropagation-explication.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/fonctions-de-perte-ia.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/le-gradient-maths-et-IA.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/algebre-lineaire.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/calcul-differentiel.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/les-reseaux-de-neurones-convolutionels.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/les-reseaux-de-neurones-recurrents.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/long-short-term-memory-LSTM.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/les-gated-recurrent-unit.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/encoder-decodeur-explique-sqe2seq.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/KNN-KMEANS-explique.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/arbres-de-decision-et-SVM.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/definition-histoire-et-application-de-l-ia.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/IA-vs-machine-learning-vs-deeplearning.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/les-differents-types-d-apprentissage.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/intro-algos-bases-ia.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/blog/train-val-test-split.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://paulclaret.pro/portfolio/dontlookhere.html</loc>
+  <lastmod>2024-12-09T16:23:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>

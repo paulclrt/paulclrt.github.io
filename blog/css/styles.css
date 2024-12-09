@@ -24,7 +24,7 @@ main h1 {
 main h2.subtitle {
   margin: 0.2em 0em;
 }
-main h3 {
+main .by-card h3 {
   font-size: 2em;
 }
 main h4 {

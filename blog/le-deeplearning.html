@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLCYZ1755W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MLCYZ1755W');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-52RQ5RM7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/favico.svg">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <title>Le DeepLearning et les dernières avancés en IA | Blog Paul Claret</title>
+    <meta name="description" content="Découvrez les dernières révolutions dans le domaine du deeplearning et sa puissance...">
+    
+
+    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+    <link loading="lazy" class="blog-sheets" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <script loading="lazy" class="blog-sheets" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <a href="/" class="image-link">
+                <img src="/assets/favico.svg" alt="Website Paul Claret Logo" >
+            </a>
+            <!-- <div class="desktop-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blogs</a>
+            </div> -->
+            <div class="searchbar">
+                <form action="/blog/search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </header>
+
+
+
+    <main>
+        <section class="redaction">
+            <div id="ariane">
+                <p>
+                    <a href="/blog/search.html">blog</a>
+                    >
+                    <a href="/blog/le-deeplearning.html">le-deeplearning</a>
+                </p>
+            </div>
+            <h1 class="title">Le Deeplearning et ses dernières avancés</h1>
+            <!-- <h2 class="subtitle">Explicaitons simples puis approfondies avec les maths</h2> -->
+            <div class="by-card">
+                <img src="/assets/favico.svg" alt="Author Profile - Paul Claret">
+                <div>
+                    <h3>By Paul Claret</h3>
+                    <p>10 minutes read - 12/12/24</p>
+                </div>
+            </div>
+           
+
+
+            <p>Le deep learning, ou apprentissage profond, est une sous-discipline
+                du machine learning qui a transformé de nombreux domaines de la
+                technologie, de la reconnaissance vocale aux véhicules autonomes. À la
+                base, le deep learning repose sur des réseaux neuronaux artificiels
+                (ANNs) composés de nombreuses couches, d’où le terme “profond”. Il a
+                aujourd’hui beaucoup évolué et s’est “diversifié”. Cet article explore
+                des concepts fondamentaux et des pistes moins souvent abordées dans
+                d’autres discussions, pour élargir votre perspective sur le sujet.</p>
+                <h2 id="pourquoi-le-deep-learning-est-révolutionnaire">1. Pourquoi le
+                deep learning est révolutionnaire</h2>
+                <p>Le deep learning se distingue par sa capacité à apprendre directement
+                des données brutes, souvent sans nécessiter de <strong>caractéristiques
+                manuellement définies</strong>. Contrairement aux approches classiques
+                où les ingénieurs devaient extraire des attributs pertinents (comme les
+                contours dans les images), les réseaux profonds apprennent
+                automatiquement des <strong>représentations hiérarchiques</strong></p>
+                <h3 id="applications-révolutionnaires">Applications révolutionnaires
+                :</h3>
+                <ul>
+                <li><strong>Vision par ordinateur</strong> : Reconnaissance faciale,
+                détection d’objets, segmentation d’images.</li>
+                <li><strong>Traitement du langage naturel (NLP)</strong> : Traduction
+                automatique, analyse des sentiments, chatbots: GPT…</li>
+                <li><strong>Santé</strong> : Détection précoce de maladies dans les
+                imageries médicales.</li>
+                <li><strong>Jeux</strong> : AlphaGo, AlphaZero, Dota 2 bots.</li>
+                </ul>
+                <h2 id="vers-des-architectures-spécialisées-au-delà-des-cnn-et-rnn">2.
+                Vers des architectures spécialisées : au-delà des CNN et RNN</h2>
+                <p>Bien que les réseaux convolutionnels (CNN) et récurrents (RNN) soient
+                les piliers traditionnels, d’autres architectures et concepts émergent,
+                parfois moins explorés mais tout aussi fascinants.</p>
+                <h3 id="a-capsule-networks">a) Capsule Networks</h3>
+                <p>Proposée par Geoffrey Hinton, cette architecture promet de résoudre
+                certaines limites des CNN, notamment leur incapacité à capturer les
+                relations hiérarchiques entre objets. Les <strong>capsules</strong> sont
+                des groupes de neurones qui modélisent à la fois la présence et les
+                propriétés spatiales des entités dans une image.</p>
+                <h3 id="b-neural-odes-ordinary-differential-equations">b) Neural ODEs
+                (Ordinary Differential Equations)</h3>
+                <p>Ces modèles représentent un réseau comme une équation différentielle
+                continue plutôt qu’une série discrète de couches. Cela ouvre la voie à
+                des approches plus élégantes pour le traitement des données temporelles
+                ou des systèmes dynamiques.</p>
+                <h3 id="c-equivariant-neural-networks">c) Equivariant Neural
+                Networks</h3>
+                <p>Ils sont conçus pour préserver certaines symétries dans les données,
+                comme les rotations ou les translations. Utiles dans des domaines comme
+                la vision 3D ou la chimie computationnelle, où ces invariances sont
+                cruciales.</p>
+                <h2 id="le-deep-learning-et-le-monde-physique">3. Le deep learning et le
+                monde physique</h2>
+                <p>Au-delà des applications numériques, le deep learning commence à
+                révolutionner des domaines physiques, souvent loin de la reconnaissance
+                d’images ou du NLP.</p>
+                <h3 id="a-physique-computationnelle">a) Physique computationnelle</h3>
+                <p>Le deep learning est utilisé pour résoudre des équations aux dérivées
+                partielles, modéliser des systèmes quantiques complexes ou optimiser des
+                designs aérodynamiques.</p>
+                <h3 id="b-simulation-basée-sur-les-données">b) Simulation basée sur les
+                données</h3>
+                <p>Les réseaux comme <strong>Physics-Informed Neural Networks
+                (PINNs)</strong> apprennent les lois physiques sous-jacentes à partir
+                des données et permettent de simuler des systèmes physiques, comme des
+                flux de fluides ou des champs électromagnétiques.</p>
+                <h2 id="défis-et-pistes-de-recherche">4. Défis et pistes de
+                recherche</h2>
+                <h3 id="a-énergie-et-efficacité">a) Énergie et efficacité</h3>
+                <p>L’entraînement des grands modèles consomme énormément de ressources.
+                Les recherches actuelles explorent des approches comme :</p>
+                <ul>
+                <li><strong>Pruning</strong> : Réduction des réseaux sans perte
+                significative de performance.</li>
+                <li><strong>Quantization</strong> : Réduction de la précision numérique
+                pour économiser de la mémoire.</li>
+                </ul>
+                <h3 id="b-interprétabilité">b) Interprétabilité</h3>
+                <p>Les modèles de deep learning sont souvent considérés comme des
+                <strong>boîtes noires</strong>. Les chercheurs développent des outils
+                pour visualiser les activations ou comprendre les décisions des réseaux,
+                une nécessité dans des domaines sensibles comme la santé.</p>
+                <h3 id="c-apprentissage-fédéré-et-confidentialité">c) Apprentissage
+                fédéré et confidentialité</h3>
+                <p>Avec l’augmentation des préoccupations sur les données personnelles,
+                l’apprentissage fédéré permet d’entraîner des modèles sur des données
+                réparties sans les centraliser.</p>
+                <h2 id="vers-une-intelligence-vraiment-générale">6. Vers une
+                intelligence vraiment générale ?</h2>
+                <p>Le deep learning s’approche de l’intelligence artificielle générale
+                (AGI) en combinant :</p>
+                <ul>
+                <li><strong>Apprentissage multitâche</strong> : Modèles capables
+                d’effectuer plusieurs tâches différentes.</li>
+                <li><strong>Modèles unifiés</strong> : Comme <strong>GPT</strong> ou
+                <strong>DeepMind’s Gato</strong>, qui peuvent traiter à la fois du
+                texte, des images et d’autres types de données.</li>
+                </ul>
+                <h3 id="conclusion">Conclusion</h3>
+                <p>Le deep learning est bien plus qu’un simple outil pour résoudre des
+                problèmes spécifiques. Il s’agit d’un paradigme qui redéfinit notre
+                compréhension des données et de l’intelligence. Qu’il s’agisse de créer
+                des mondes virtuels, de comprendre la nature physique ou d’unifier
+                différentes formes d’apprentissage, le potentiel du deep learning est
+                immense. Mais cette puissance s’accompagne de responsabilités, notamment
+                en termes d’impact énergétique, d’éthique et de transparence.</p>
+
+
+
+
+
+
+
+
+
+            <h3> Vous voulez apprendre l'IA en autonomie ?</h3>
+            <p>
+                Si vous êtes nouveau sur mon site, je vous invite à aller voir ma page sur <a href="/roadmap/ai-roadmap.html">Roadmap IA</a> qui regroupe tous mes articles dans l'ordre pour vous facilitez l'apprentissage.
+            </p>
+        </section>
+    </main>
+
+
+
+
+    <footer> 
+        <p>
+            Copyright © 2024 Paul Claret 
+        </p> 
+        <p>
+            Made with Love ❤️
+        </p> 
+        <p>     
+            <!-- <a href="/tos" class="hover:underline"> Terms of Service </a> |
+            <a href="/privacy" class="hover:underline"> Privacy Policy </a> | -->
+            <a href="mailto:paulclaret4@gmail.com" class="hover:underline"> Contact Me </a> 
+        </p>
+    </footer>
+
+
+
+</body>
+</html>

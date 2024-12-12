@@ -72,93 +72,110 @@
 -->
 
     <main>
-        <div class="table-of-content">
-            <h3>Table des Matières</h3>
-<ol>
-    <li>
-        <hr>
-        <p>Introduction</p>
-        <ul>
-            <li id="1" data-url="">Définition, historique, et applications actuelles</li>
-            <li id="2" data-url="">Différences entre IA, Machine Learning (ML) et Deep Learning (DL)</li>
-            <li id="3" data-url="">Les enjeux éthiques et les défis de l'IA</li>
-        </ul>
-    </li>
-    <li>
-        <hr>
-        <p>Bases Mathématiques (Si nécessaire)</p>
-        <ul>
-            <li id="4" data-url="/blog/algebre-lineaire.html">Algèbre Linéaire</li>
-            <li id="5" data-url="/blog/calcul-differentiel.html">Calcul Différentiel</li>
-            <li id="6" data-url="">Probabilités et Statistiques</li>
-        </ul>
-    </li>
-    <li>
-        <hr>
-        <p>Machine Learning</p>
-        <ul>
-            <li id="7" data-url="">Les différent types d'apprentissage</li> <!--Supervisé, non supervisén par renforcement, semi-supervisé-->
-            <li id="8" data-url="">Ensemble d'entraînement, de validation et de test</li>
-            <li id="9" data-url="">introduction algorithmes de base</li>
-            <li id="10" data-url="">Régression linéaire et logistique</li>
-            <li id="11" data-url="">k-NN, k-means, arbres de décision, SVM</li>
-            <li id="12" data-url="">Évaluation des modèles</li>
-            <li id="13" data-url="">Courbe ROC, précision, rappel, F1-score</li>
-        </ul>
-    </li>
-    <li>
-        <hr>
-        <p>Apprentissage par Renforcement (Reinforcement Learning)</p>
-        <ul>
-            <li id="14" data-url="">Agents, environnements, politiques, récompenses</li>
-            <li id="15" data-url="">Algorithmes clés</li>
-            <li id="16" data-url="">Q-Learning, Deep Q-Networks (DQN)</li>
-            <li id="17" data-url="">Cas d'application : Jeux, robotique</li>
-        </ul>
-    </li>
-    <li>
-        <hr>
-        <p>Réseaux Neuronaux et Deep Learning</p>
-        <ul>
-            <li id="18" data-url="">Réseaux neuronaux artificiels (ANNs)</li>
-            <li id="19" data-url="">Architecture, fonctions d'activation, propagation avant et arrière</li>
-            <li id="20" data-url="">Deep Learning</li>
-            <li id="21" data-url="/blog/les-reseaux-de-neurones-convolutionels.html">Les réseaux de neurones convoutifs - CNN</li>
-            <li id="22" data-url="/blog/les-reseaux-de-neurones-recurrents.html">Les réseaux de neurones récurrent - RNN</li>
-            <li id="23" data-url="/blog/long-short-term-memory-LSTM.html">Les réseaux de neurones récurrent à mémoire long et court terme - LSTM</li>
-            <li id="24" data-url="/blog/les-gated-recurrent-unit.html">Les gated recurrent unit - GRU</li>
-            <li id="25" data-url="/blog/encoder-decodeur-explique-sqe2seq.html">Les encodeurs/décodeurs - SEQ2SEQ</li>
-            <li id="26" data-paid data-url="">Le principe d'attention</li>
-            <li id="26" data-paid data-url="">Les transformers</li>
-            <!-- <li id="27" data-url="">Les ViT - Vision transformers</li> -->
-            </ul>
-        </ul>
-    </li>
-    <li>
-        <hr>
-        <p>L'IA générative</p>
-        <ul>
-            <li id="26" data-url="">Les réseaux de neurones génératifs adversarial - GAN</li>
-            <li id="" data-url="">VAEs (Variational Autoencoders)</li>
-            <li id="" data-paid data-url="">Diffusion Models</li>
-            <li id="" data-paid data-url="">flow based model</li> 
-        </ul>
-    </li>
-</ol>
+        <div class="left-panel">
+            <div class="table-of-content">
+                <h3>Table des Matières</h3>
+                <ol id="toc">
+                    <li>
+                        <hr>
+                        <p>Introduction</p>
+                        <ul>
+                            <li id="1" data-url="/blog/definition-histoire-et-application-de-l-ia.html">Définition, historique, et applications actuelles</li>
+                            <li id="2" data-url="/blog/IA-vs-machine-learning-vs-deeplearning.html">Différences entre IA, Machine Learning (ML) et Deep Learning (DL)</li>
+                            <li id="3" data-url="/blog/intro-enjeux-ethiques-ia.html">Les enjeux éthiques et les défis de l'IA</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <hr>
+                        <p>Bases Mathématiques (Si nécessaire)</p>
+                        <ul>
+                            <li id="4" data-url="/blog/algebre-lineaire.html">Algèbre Linéaire</li>
+                            <li id="5" data-url="/blog/calcul-differentiel.html">Calcul Différentiel</li>
+                            <li id="6" data-url="/blog/probabilite-et-statistiques-pour-l-ia.html">Probabilités et Statistiques</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <hr>
+                        <p>Machine Learning</p>
+                        <ul>
+                            <li id="7" data-url="/blog/les-differents-types-d-apprentissage.html">Les différent types d'apprentissage</li> <!--Supervisé, non supervisén par renforcement, semi-supervisé-->
+                            <li id="8" data-url="/blog/train-val-test-split.html">Ensemble d'entraînement, de validation et de test</li>
+                            <li id="9" data-url="/blog/intro-algos-bases-ia.html">introduction algorithmes de base</li>
+                            <li id="10" data-url="/blog/regression-lineaire-et-logistique.html">Régression linéaire et logistique</li>
+                            <li id="11" data-url="/blog/KNN-KMEANS-explique.html">k-NN, k-means</li>
+                            <li id="12" data-url="/blog/arbres-de-decision-et-SVM.html">Arbres de decision, SVM</li>
+                            <li id="13" data-url="/blog/evaluation-model-ia-precision-f1score-roc.html">Évaluation des modèles, Courbe ROC, précision, rappel, F1-score</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <hr>
+                        <p>Apprentissage par Renforcement (Reinforcement Learning)</p>
+                        <ul>
+                            <li id="14" data-url="/blog/agent-environement-politique-recompense-deeplearning.html">Agents, environnements, politiques, récompenses</li>
+                            <li id="15" data-url="/blog/algos-clef-reinforcement-learning.html">Algorithmes clés</li>
+                            <li id="16" data-url="/blog/Qlearning-Deep-Q-Learning.html">Q-Learning, Deep Q-Networks (DQN)</li>
+                            <li id="17" data-url="">Cas d'application : Jeux, robotique</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <hr>
+                        <p>Réseaux Neuronaux et Deep Learning</p>
+                        <ul>
+                            <li id="18" data-url="/blog/les-reseaux-de-neurones-artificiels.html">Réseaux neuronaux artificiels (ANNs)</li>
+                            <li id="19" data-url="/blog/architecture-fonction-activation-back-forward-prop.html">Architecture, fonctions d'activation, propagation avant et arrière</li>
+                            <li id="20" data-url="/blog/le-deeplearning.html">Deep Learning</li>
+                            <li id="21" data-url="/blog/les-reseaux-de-neurones-convolutionels.html">Les réseaux de neurones convoutifs - CNN</li>
+                            <li id="22" data-url="/blog/les-reseaux-de-neurones-recurrents.html">Les réseaux de neurones récurrent - RNN</li>
+                            <li id="23" data-url="/blog/long-short-term-memory-LSTM.html">Les réseaux de neurones récurrent à mémoire long et court terme - LSTM</li>
+                            <li id="24" data-url="/blog/les-gated-recurrent-unit.html">Les gated recurrent unit - GRU</li>
+                            <li id="25" data-url="/blog/encoder-decodeur-explique-sqe2seq.html">Les encodeurs/décodeurs - SEQ2SEQ</li>
+                            <li id="26" data-paid data-url="">Le principe d'attention</li>
+                            <li id="26" data-paid data-url="">Les transformers</li>
+                            <!-- <li id="27" data-url="">Les ViT - Vision transformers</li> -->
+                            </ul>
+                        </ul>
+                    </li>
+                    <li>
+                        <hr>
+                        <p>L'IA générative</p>
+                        <ul>
+                            <li id="26" data-url="">Les réseaux de neurones génératifs adversarial - GAN</li>
+                            <li id="" data-url="">VAEs (Variational Autoencoders)</li>
+                            <li id="" data-paid data-url="">Diffusion Models</li>
+                            <li id="" data-paid data-url="">flow based model</li> 
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            <div class="statusbar" id="statusbar">
+                <div id="progress-container">
+                    
+                    <p>total progress</p>
+                    <div id="total-progress-bar" class="progress-fill">
+                    </div>
+                </div>
+                <div id="progress-container">
+                    <p>section progress</p>
+                    <div id="section-progress-bar" class="progress-fill">
 
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="content">
             <article>
 
             </article>
             <div class="nav">
-                <button id="prev">Previous</button>
+                <button id="prev">Undone</button>
                 <button id="next">Done 😊</button>
             </div>
         </div>
         <div class="google-ad"></div>
 
         <script src="/dist/roadmap/roadmap.js" type="module"></script>
+        <script src="/dist/roadmap/progressbar.js" type="module"></script>
     </main>
 
 

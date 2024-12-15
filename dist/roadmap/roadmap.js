@@ -1,79 +1,139 @@
-let currentArticleIndex = undefined; // L'index actuel
-const articles = []; // Liste des URLs des articles
+import { update_section_progress } from "./progressbar.js";
+
+
+
+class Article {
+    constructor(id, url, premium, status) {
+        this.id = id
+        this.url = url
+        this.premium = premium // free, paid
+        this.status = status // done, problem, none
+    }
+
+    toggle_status() {
+        // none -> done -> problem -> none : cycle through
+        const status = ["none", "done", "problem"];
+        var index_next = status.indexOf(this.status) + 1;
+        if (index_next > status.length) {
+            index_next = 0;
+        }
+        this.status = status[index_next];
+        console.log(this.id, this.status)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+let currentArticleIndex = undefined; // Current article index
+const articles = []; // List to store article instances
 const paidHTML = `<div class="paid-message">
     <h2>Accès Premium</h2>
     <p>Ce contenu est réservé aux utilisateurs premium. <a href="/subscribe">Abonnez-vous maintenant</a> pour y accéder.</p>
 </div>`;
-
+var statusColors = {
+    none: "white",
+    done: "#B2F2BB",
+    problem: "#FFC9C9",
+};
 // SVG for the lock icon
 const lockSVG = `
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" viewBox="0 0 16 16" class="lock-icon">
         <path d="M8 1a4 4 0 0 0-4 4v3H3.5A1.5 1.5 0 0 0 2 9.5v5A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 12.5 8H12V5a4 4 0 0 0-4-4zm2 4H6V5a2 2 0 1 1 4 0v1zm-5 2h8a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5a.5.5 0 0 1 .5-.5z"/>
     </svg>`;
 
-// Initialiser la liste des articles depuis les éléments <li>
-$("ul>li").each(function () {
-    const url = $(this).data("url");
-    const isPaid = $(this).data("paid") !== undefined;
+// Initialize statuses from localStorage
+const statuses = JSON.parse(localStorage.getItem("articleStatuses")) || {};
 
-    // Append lock icon if the article is paid
-    if (isPaid) {
-        $(this).prepend(lockSVG);
-    }
-
-    articles.push({ url: url || "/blog/not-found.html", isPaid });
-});
-
+// Load articles on page load
 window.onload = function () {
-    // get the idx param in url if it exists and load the article
-    var url = window.location.href;
-    var params = url.split("?")[1];
-    if (params) {
-        var paramsArr = params.split("&");
-        for (let p = 0; p < paramsArr.length; p++) {
-            let split = paramsArr[p].split("=");
-            if (split[0] === "idx") {
-                const idx = parseInt(split[1]);
-                loadArticle(idx);
-                break;
-            }
+    // Scan HTML page for articles
+    $("ul>li").each(function (index) {
+        const url = $(this).data("url") || "undefined";
+        const isPaid = $(this).data("paid") !== undefined;
+        const id = $(this).data("id"); // Assuming each article has a unique ID
+
+        // Append lock icon if the article is paid
+        if (isPaid) {
+            $(this).prepend(lockSVG);
         }
-    }
+
+        // Initialize article with the correct status from localStorage
+        const status = statuses[id] || "none"; // Default to 'none' if not in localStorage
+        const article = new Article(id, url, isPaid, status);
+        articles.push(article);
+
+        // Update the UI with the article's status
+        updateSidebarStatus($(this), article.status);
+
+        // Handle status cycling on click
+        const $this = $(this);
+        $this.on("dblclick", function () {
+            article.toggle_status();
+            statuses[id] = article.status; // Update the status in localStorage
+            updateSidebarStatus($this, article.status);
+            localStorage.setItem("articleStatuses", JSON.stringify(statuses)); // Save to localStorage
+            update_section_progress(articles, currentArticleIndex);
+
+        });
+    });
+
+    // Check for missing articles in localStorage
+    checkMissingArticles();
 };
 
-function updateURLParameter(url, paramVal) {
-    var tempArray = url.split("?");
-    var baseURL = tempArray[0];
-    var updatedURL = baseURL + "?idx=" + paramVal;
-    window.history.replaceState("", "", updatedURL);
+// Function to update the sidebar status color
+function updateSidebarStatus($element, status) {
+
+    if (status === "none") {
+        $element.css("background-color", ""); // Remove inline color for undefined
+    } else {
+        $element.css("background-color", statusColors[status]);
+    }
+    localStorage.setItem("articleStatuses", JSON.stringify(statuses));
 }
 
-// Fonction pour charger un article par son index
-function loadArticle(index, updateHistory = true) {
+// Function to check for missing articles in localStorage
+function checkMissingArticles() {
+    $("ul>li").each(function () {
+        const id = $(this).data("id");
+        if (!statuses[id]) {
+            console.warn(`Article with ID ${id} is missing from localStorage!`);
+            statuses[id] = "none"; // Default to "none" if not in localStorage
+        }
+    });
+}
+
+// Function to load an article by its index
+function loadArticle(index, updateHistory = true, forceupdate = false) {
     if (index < 0 || index >= articles.length) {
-        console.error("Index en dehors des limites");
+        console.error("Index out of bounds");
         return;
     }
+    update_section_progress(articles, index);
 
     const article = articles[index];
-    if (article.isPaid) {
-        // Affiche le contenu personnalisé pour les articles payants
+    if (article.premium) {
         $("article").html(paidHTML);
     } else {
-        // Charge l'article normalement
-        $.get(article.url, function (data) {
+        let url = "/blog/not-found.html"
+        if (article.url === "undefined") { url = "/blog/not-found.html" } 
+        else  { url = article.url }
+
+        $.get(url, function (data) {
             const parsedHTML = $("<div>").html(data);
             const mainContent = parsedHTML.find("main").html();
             if (mainContent) {
                 $("article").html(mainContent);
-                currentArticleIndex = index; // Mettre à jour l'index courant
-                // Trigger MathJax pour re-render
-                MathJax.typeset();
-
-                // Ajouter l'URL dans l'historique du navigateur
-                if (updateHistory) {
-                    updateURLParameter(window.location.href, currentArticleIndex);
-                }
+                currentArticleIndex = index;
+                MathJax.typeset(); // Trigger MathJax to re-render
             } else {
                 $("article").html("<p>Pas de balise <main> trouvée.</p>");
             }
@@ -83,33 +143,50 @@ function loadArticle(index, updateHistory = true) {
     }
 }
 
-// Événement sur les éléments <li>
+// Handle clicks on article items
 $("ul>li").on("click", function () {
-    const index = $("ul>li").index(this); // Trouver l'index de l'élément cliqué
+    const index = $("ul>li").index(this);
     loadArticle(index);
 });
 
-// Événement pour le bouton "Précédent"
-$("#prev").on("click", function () {
-    if (currentArticleIndex > 0) {
-        loadArticle(currentArticleIndex - 1);
+// undone article button
+$("#undone").on("click", function () {
+    if (currentArticleIndex !== undefined && currentArticleIndex < articles.length) {
+        const article = articles[currentArticleIndex];
+        article.status = "problem"; // Set the status to 'none'
+        statuses[article.id] = article.status; // Update the status in localStorage
+        updateSidebarStatus($("ul>li").eq(currentArticleIndex), article.status); // Update the UI
+        localStorage.setItem("articleStatuses", JSON.stringify(statuses)); // Save to localStorage
+        update_section_progress(articles, currentArticleIndex);
+
     } else {
-        alert("Vous êtes déjà au premier article.");
+        alert("Aucun article sélectionné.");
     }
 });
 
-// Événement pour le bouton "Suivant"
-$("#next").on("click", function () {
-    if (currentArticleIndex < articles.length - 1) {
-        loadArticle(currentArticleIndex + 1);
+// done article button
+$("#done").on("click", function () {
+
+
+    if (currentArticleIndex !== undefined && currentArticleIndex < articles.length) {
+        const article = articles[currentArticleIndex];
+        article.status = "done"; // Directly set the status to 'done'
+        statuses[article.id] = article.status; // Update the status in localStorage
+        updateSidebarStatus($("ul>li").eq(currentArticleIndex), article.status); // Update the UI
+        localStorage.setItem("articleStatuses", JSON.stringify(statuses)); // Save to localStorage
+        update_section_progress(articles, currentArticleIndex);
+
+        if (currentArticleIndex < articles.length -1) { // last article do not move ahead
+            loadArticle(currentArticleIndex + 1);
+        }
     } else {
-        alert("Vous êtes déjà au dernier article.");
+        alert("Selectionez un article");
     }
 });
 
-// Gérer les événements "popstate" (boutons retour/avant du navigateur)
+// Handle browser history navigation
 window.onpopstate = function (event) {
     if (event.state && event.state.index !== undefined) {
-        loadArticle(event.state.index, false); // Ne pas ajouter à l'historique
+        loadArticle(event.state.index, false); // Do not update history
     }
 };

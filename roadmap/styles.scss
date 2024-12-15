@@ -15,48 +15,114 @@ html, body {
 main {
     display: flex;
     flex-direction: row;
-    justify-content: baseline;
-    align-items: baseline;
+    justify-content: flex-start;
+    align-items: flex-start;
     max-height: 90vh;
 }
 
-.table-of-content::-webkit-scrollbar {
-    display: none;
-}
-.table-of-content {
+.left-panel {
+    display: flex;
+    flex-direction: column;
     max-width: 20%;
-    max-height: 90vh ;
-    overflow-y: scroll;
-    padding-right: 1em;
+    max-height: 90vh; // Total height of the panel
     border-right: 1px solid rgba(135, 135, 135, 0.3);
-    hr {
-        border:none;
-        background-color: #bfbfbf42;
-        color: #bfbfbf42;
-        height: 1px;
+
+    .table-of-content {
+        flex: 0 1 auto; // Allow it to grow/shrink within its container
+        overflow-y: auto; // Enable scrolling for overflowing content
+        height: calc(90vh * 0.90); // Explicit height, 85% of 90vh
+        padding-right: 1em;
+
+        &::-webkit-scrollbar {
+            display: none; // Hide scrollbar for clean UI
+        }
+
+        hr {
+            border: none;
+            background-color: #bfbfbf42;
+            color: #bfbfbf42;
+            height: 1px;
+        }
+
+        ul, ol, li {
+            margin: 0.5em 0em;
+            padding: 0;
+        }
+
+        ol p {
+            font-size: larger;
+            font-weight: 500;
+        }
+
+        ul li {
+            list-style: none;
+            border: 1px solid rgba(195, 194, 194, 0.3);
+            border-radius: 0.5em;
+            padding: 0.3em 1em 0.3em 2em;
+            background-color: rgb(243, 243, 243);
+
+            &:hover {
+                background-color: rgb(230, 230, 230);
+                transition: 0.5s;
+                cursor: pointer;
+            }
+        }
     }
-    ul, ol, li{
-        margin: 0.5em 0em;
-        padding: 0;
-    }
-    ol p {
-        font-size: larger;
-        font-weight: 500;
-    }
-    ul li {
-        list-style: none;
-        border: 1px solid rgba(195, 194, 194, 0.3);
-        border-radius: 0.5em;
-        padding: 0.3em 1em ;
-        background-color: rgb(243, 243, 243);
+
+    .statusbar {
+        flex: 0 1 auto; // Status bar flex rule
+        height: calc(90vh * 0.10); // Explicit height, 15% of 90vh
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        
+        p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        #progress-container {
+            width: 80%;
+            border: 1px solid rgb(206, 206, 206);
+            height: 20px;
+            // padding: 0rem 0.3rem;
+            background-color: #EFEFEF;
+            border-radius: 10px;
+            position: relative;
+            overflow: visible;
+
+            .progress-fill {
+                position: relative;
+                top: 0;
+                left: 0;
+                height: 100%;
+                background-color: #4caf50;
+                border-radius: 10px;
+                transition: width 0.5s ease;
+                overflow-x: visible;
+            }
+            p {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
         
     }
-    ul li:hover {
-        background-color: rgb(230, 230, 230);
-        transition: 0.5s;
-        cursor: pointer;
-    }
 }
+
+
+
+
 
 .content {
     width: 60%;
@@ -92,6 +158,30 @@ button {
     
 }
 
+
+.lock-icon {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+ul li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: lightgray;
+}
+
+ul li[style="background-color: green;"] {
+    color: white; /* Optional, improve readability */
+}
+
+.paid-message {
+    text-align: center;
+    color: #555;
+}
 
 button:hover {
     cursor: pointer;

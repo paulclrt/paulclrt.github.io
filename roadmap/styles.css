@@ -15,47 +15,97 @@ html, body {
 main {
   display: flex;
   flex-direction: row;
-  justify-content: baseline;
-  align-items: baseline;
+  justify-content: flex-start;
+  align-items: flex-start;
   max-height: 90vh;
 }
 
-.table-of-content::-webkit-scrollbar {
-  display: none;
-}
-
-.table-of-content {
+.left-panel {
+  display: flex;
+  flex-direction: column;
   max-width: 20%;
   max-height: 90vh;
-  overflow-y: scroll;
-  padding-right: 1em;
   border-right: 1px solid rgba(135, 135, 135, 0.3);
 }
-.table-of-content hr {
+.left-panel .table-of-content {
+  flex: 0 1 auto;
+  overflow-y: auto;
+  height: 81vh;
+  padding-right: 1em;
+}
+.left-panel .table-of-content::-webkit-scrollbar {
+  display: none;
+}
+.left-panel .table-of-content hr {
   border: none;
   background-color: rgba(191, 191, 191, 0.2588235294);
   color: rgba(191, 191, 191, 0.2588235294);
   height: 1px;
 }
-.table-of-content ul, .table-of-content ol, .table-of-content li {
+.left-panel .table-of-content ul, .left-panel .table-of-content ol, .left-panel .table-of-content li {
   margin: 0.5em 0em;
   padding: 0;
 }
-.table-of-content ol p {
+.left-panel .table-of-content ol p {
   font-size: larger;
   font-weight: 500;
 }
-.table-of-content ul li {
+.left-panel .table-of-content ul li {
   list-style: none;
   border: 1px solid rgba(195, 194, 194, 0.3);
   border-radius: 0.5em;
-  padding: 0.3em 1em;
+  padding: 0.3em 1em 0.3em 2em;
   background-color: rgb(243, 243, 243);
 }
-.table-of-content ul li:hover {
+.left-panel .table-of-content ul li:hover {
   background-color: rgb(230, 230, 230);
   transition: 0.5s;
   cursor: pointer;
+}
+.left-panel .statusbar {
+  flex: 0 1 auto;
+  height: 9vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.left-panel .statusbar p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.left-panel .statusbar #progress-container {
+  width: 80%;
+  border: 1px solid rgb(206, 206, 206);
+  height: 20px;
+  background-color: #EFEFEF;
+  border-radius: 10px;
+  position: relative;
+  overflow: visible;
+}
+.left-panel .statusbar #progress-container .progress-fill {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  overflow-x: visible;
+}
+.left-panel .statusbar #progress-container p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {
@@ -93,6 +143,30 @@ button {
   color: white;
   font-weight: 600;
   font-size: large;
+}
+
+.lock-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+ul li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+  background-color: lightgray;
+}
+
+ul li[style="background-color: green;"] {
+  color: white; /* Optional, improve readability */
+}
+
+.paid-message {
+  text-align: center;
+  color: #555;
 }
 
 button:hover {

@@ -4,6 +4,9 @@ html, body {
   box-sizing: border-box;
   margin: 0;
 }
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}
 
 header {
   margin: 1em 2%;
@@ -51,6 +54,9 @@ section.division {
 section.division * {
   font-family: "Bricolage Grotesque", "Geist Mono", "Inter", "Noto Color Emoji";
 }
+section.division a {
+  word-break: break-all;
+}
 section.division .content {
   max-width: 47%;
 }
@@ -58,8 +64,18 @@ section.division .content h2 {
   font-size: 3em;
   text-align: center;
 }
+section.division .content h3 {
+  font-size: 2em;
+  text-align: center;
+}
+section.division .content h4 {
+  font-size: 1.5em;
+  text-align: center;
+}
 section.division .content img {
   max-width: 100%;
+  min-width: 100%;
+  margin: auto auto;
 }
 section.division .answer {
   background-color: rgb(233, 233, 233);

@@ -108,6 +108,11 @@ main {
   justify-content: center;
 }
 
+div.google-ad {
+  min-width: 20%;
+  min-height: 90vh;
+}
+
 .content {
   width: 60%;
   max-height: 90vh;

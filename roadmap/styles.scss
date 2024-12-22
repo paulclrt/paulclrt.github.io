@@ -167,16 +167,6 @@ button {
 
 
 
-ul li {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-ul li:hover {
-    background-color: lightgray;
-}
-
 ul li[style="background-color: green;"] {
     color: white; /* Optional, improve readability */
 }

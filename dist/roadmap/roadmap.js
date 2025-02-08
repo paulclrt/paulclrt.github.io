@@ -38,6 +38,7 @@ const articles = []; // List to store article instances
 const paidHTML = `<div class="paid-message">
     <h2>Accès Premium</h2>
     <p>Ce contenu est réservé aux utilisateurs premium. <a href="/subscribe">Abonnez-vous maintenant</a> pour y accéder.</p>
+    <p style="color: red;">Warning: A la date de ce jour, l'abonnement premium n'est pas encore disponible. Lorsqu'il le sera, ce text aura disparu et vous pourrez l'acheter</p>
 </div>`;
 var statusColors = {
     none: "white",

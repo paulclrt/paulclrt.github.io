@@ -201,14 +201,12 @@ section.projects {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120vh; /* Full page height for demo */
     background-color: #f5f5f5; /* Light background */
 }
 
 .projects {
     position: relative;
     width: 100%;
-    height: 120vh;
     overflow-y: scroll;
     overflow-x: hidden;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -223,45 +221,66 @@ section.projects {
     transition: opacity 2s ease-in-out;
 }
 
-.reveal:hover {
-    background-color: transparent;
-}
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
-    grid-template-rows: repeat(2, auto); /* 2 rows */
-    gap: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     z-index: 5;
     padding: 2em;
     opacity: 1;
     transition: opacity 2s ease-in-out;
 }
 
-.project-tile.last {
-    grid-column: 2;
-}
-
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-        grid-template-rows: auto; /* As many rows as needed */
-    }
-
-    .project-tile.last {
-        grid-column: 1;
-    }
-}
-
 .project-tile {
+    width: 80%;
+    min-height: 45vh;
+    
     border: 1px solid #ddd;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1em;
+    margin-bottom: 3em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
+@media screen and (max-width: 800px) {
+    .project-tile {
+        flex-direction: column !important;
+        max-height: 100vh !important;
+        width: 95% !important;
+    }
+    .project-tile div {
+        width: 100% !important;
+    }
+    .project-tile video {
+        width: 100% !important;
+    }
+    .project-tile h4 { font-size: 1.3em !important; }
+
+}
+
+.project-tile .image-block {
+    width: 33%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.project-tile video {
+    max-height: 45vh;
+
+}
+
+.project-tile .text-block {
+    width: 67%;
+    min-height: 100%;
+    padding: 1em;
+    background-color: white;
+}
 
 .image-block.carousel {
     animation: imageToggle 10s infinite;
@@ -275,23 +294,11 @@ section.projects {
         background-image: url("/portfolio/projects/ELEVATOR-ECE-2.avif");
     }
 }
-.image-block {
-    width: 100%;
-    min-height: 200px; /* Adjust height as needed */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
-.text-block {
-    padding: 1em;
-    background-color: white;
-    height: 100%
-}
 
 .text-block h4 {
     margin: 0 0 0.5em 0;
-    font-size: 1.2em;
+    font-size: 2em;
 }
 
 .text-block p {
@@ -313,16 +320,23 @@ section.projects {
     margin: 0;
 }
 
-.project-tile .text-block {
-    padding: 1em;
-    background-color: white;
+
+
+
+/*Skills under the project description*/
+
+.skills {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-top: 1em;
 }
-.image-block {
-    width: 100%;
-    height: 200px; /* Adjust height as needed */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+
+.skills svg {
+    width: 3em;
+    height: 3em;
+    margin: 0em 0.5em;
 }
 
 

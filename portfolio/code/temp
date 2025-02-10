@@ -1,0 +1,17 @@
+... wrote super-title.html
+[{'headers': {'draft': 'false', 'title': 'La revanche de Monsieur Claret mdr', 'filename_html': 'super-title.html', 'subtitle': 'subtitle', 'html_description': 'super description html', 'og_title': 'og_title super good', 'og_description': 'super og description', 'og_image_url': 'noen', 'og_image_alt': 'super alt text pour og'}, 'body': '<h1>super header</h1>\n<h2>second super header</h2>\n<p><img alt="incredible image" src="woooooo" /></p>\n<p>super contenu</p>\n<p><strong>strong text</strong></p>\n<h1>what ???</h1>'}]
+Traceback (most recent call last):
+  File "/home/paulclrt/dev/web_design_portfolio/articles/blog.py", line 112, in <module>
+    content = list_template.render(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paulclrt/dev/web_design_portfolio/.env/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/paulclrt/dev/web_design_portfolio/.env/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "templates/blog_list.html", line 201, in top-level template code
+    <a class="post-preview-image-wrapper w-inline-block" href="/blog/posts/{{ article[headers].file_name_html }}">
+^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paulclrt/dev/web_design_portfolio/.env/lib/python3.12/site-packages/jinja2/environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: dict object has no element Undefined

@@ -1,0 +1,151 @@
+
+
+/* PROJECTS Section */
+
+section.projects {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.projects-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+    
+
+.projects h1 {
+    text-align: center;
+    color: black;
+    font-size: 2.5em;
+    font-weight: bold;
+    transition: opacity 2s ease-in-out;
+}
+
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 5;
+    padding: 2em;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+}
+
+.project-tile {
+    width: 80%;
+    min-height: 45vh;
+    
+    border: 1px solid #ddd;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+    .project-tile {
+        flex-direction: column !important;
+        max-height: 100vh !important;
+        width: 95% !important;
+    }
+    .project-tile div {
+        width: 100% !important;
+    }
+    .project-tile video {
+        width: 100% !important;
+    }
+    .project-tile h4 { font-size: 1.3em !important; }
+
+}
+
+.project-tile .image-block {
+    width: 33%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.project-tile video {
+    max-height: 45vh;
+
+}
+
+.project-tile .text-block {
+    width: 67%;
+    min-height: 100%;
+    padding: 1em;
+    background-color: white;
+}
+
+.image-block.carousel {
+    animation: imageToggle 10s infinite;
+}
+
+@keyframes imageToggle {
+    0%, 50% {
+        background-image: url("/portfolio/previous_portfolio/projects/ELEVATOR-ECE-1.avif");
+    }
+    51%, 100% {
+        background-image: url("/portfolio/previous_portfolio/projects/ELEVATOR-ECE-2.avif");
+    }
+}
+
+
+.text-block h4 {
+    margin: 0 0 0.5em 0;
+    font-size: 2em;
+}
+
+.text-block p {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
+}
+
+
+.project-tile img {
+    width: 100%; /* Image takes 80% of the tile's width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures no extra space below the image */
+    margin: 0 auto; /* Centers the image within the tile */
+}
+
+.project-tile img {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+/*Skills under the project description*/
+
+.skills {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.skills img {
+    width: 2em;
+    height: 2em;
+    margin: 0em 0.5em;
+}
+
+

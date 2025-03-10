@@ -10,7 +10,7 @@ og_description: Personal project of mine. The goal was to get started with a sim
 og_image_url: code/assets/i_images/custom PCB/PCB 3D.png
 og_image_alt: Arduino breadboard assembly of ECG with 2 oled displays, one arduino, one heartbeat sensor, buttons and other controls
 images_list: ["code/assets/i_images/custom PCB/PCB 3D.png", "code/assets/i_images/custom PCB/SCHEMA.png", "code/assets/i_images/custom PCB/PCB DESIGN.png"]
-skills: ["wire", "RF", "PCB"]
+skills: ["wire", "antenna", "pcb"]
 ---
 
 
